@@ -2,8 +2,8 @@ import React from 'react'
 import "./Offering.css"
 const Offering = () => {
   return (
-        <section className="offerings-section" style={{backgroundColor: "black", color: "white"}}>
-          <h2 class="offerings-heading">create your future <br /> superfast</h2>
+        <section className="offerings-section" style={{color: "white"}}>
+          <h2 class="offerings-heading">create your future superfast</h2>
           <p class="offerings-description">with an incredible blueprint, which covers all the possible steps &amp; resources you need</p>
           <div className="offerings-card-container">
             <div className="offerings-card">

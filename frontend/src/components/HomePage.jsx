@@ -93,7 +93,7 @@ export default function HomePage() {
           </svg>
           <span>
             <Link to="/" className="logo">
-              Ten-IdeaEngine
+              TEN-HealthEngine
             </Link>
           </span>
         </h2>
@@ -139,7 +139,7 @@ export default function HomePage() {
         </p>
         <p className="spac">(obligatory social proof)</p>
       </div>
-      <div className="bg-overlay img-section">
+      {/* <div className="bg-overlay img-section">
         <img
           src={photo}
           className="photo"
@@ -161,7 +161,7 @@ export default function HomePage() {
             ></path>
           </svg>
         </div>
-      </div>
+      </div> */}
 
       <Offering />
 {/*       <Features /> */}

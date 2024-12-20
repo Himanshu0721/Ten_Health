@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import faqData from "./Faqs";
 import "./faq.css";
 import { Link } from "react-router-dom"
+import { FaPlus } from "react-icons/fa6";
+import { RxCross2 } from "react-icons/rx"
 
 function Faq() {
   const [expanded, setExpanded] = useState({});
@@ -32,7 +34,7 @@ function Faq() {
               <div className="header">
                 <h3>{item.question}</h3>
                 <button onClick={() => toggleAnswer(index)}>
-                  {expanded[index] ? "▲" : "▼"}
+                  {expanded[index] ? <RxCross2 /> : <FaPlus />}
                 </button>
               </div>
               {expanded[index] && <p>{item.answer}</p>}
@@ -43,7 +45,7 @@ function Faq() {
 
       <div className="about-section mt-5">
         <h1 className="about-title">let's turn potential into growth...</h1>
-        <p className="about-description" style={{ color: "black" }}>
+        <p className="about-description" style={{ color: "#999" }}>
           Experience the awe-inspiring magic of our blueprint as your thoughts
           unfold into a structured roadmap, guiding you effortlessly towards
           extraordinary achievement.

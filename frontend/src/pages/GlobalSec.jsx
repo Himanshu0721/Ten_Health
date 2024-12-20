@@ -4,14 +4,16 @@ import './GlobalSec.css'
 const GlobalSec = () => {
   return (
     <>
-      <section className='stats-section' style={{backgroundColor: '#000000'}}>
+      <section className='stats-section'>
         <div className='container'>
         <div className='row'>
-          <div className='col-lg-7 col-md-6 col-12'>
-        <div className='left-side'>
+          {/* <div className='col-lg-7 col-md-6 col-12'> */}
+        {/* <div className='left-side'> */}
           <h3>globally serving and building in public</h3>
-        </div></div>
-        <div className='col-lg-5 col-md-6 col-12'>
+        {/* </div> */}
+        {/* </div> */}
+        {/* <div className='col-lg-5 col-md-6 col-12'> */}
+        <div className='right-side'>
         <div className='stats-data-grid'>
 
           <div class="item">
@@ -45,7 +47,9 @@ const GlobalSec = () => {
             <div class="count">24 </div>
             <div class="label">Countries</div>
           </div>
-        </div></div></div></div>
+          </div>
+        {/* </div> */}
+        </div></div></div>
       </section>
     </>
   )
