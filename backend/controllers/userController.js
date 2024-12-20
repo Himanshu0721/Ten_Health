@@ -14,7 +14,7 @@ export const registerUser = catchAsyncErrors(async (req, res, next) => {
       return next(new ErrorHandler("User is already exist please login", 401));
     }
 
-    const user = await User.createUser({
+    const user = await User.create({
       name: name,
       email: email,
       password: password,
@@ -37,14 +37,12 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
     // Find user by email
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
-      console.log("User not found with email:", email);
+      console.error("User not found with email:", email);
       return next(new ErrorHandler("Invalid Email or Password", 401));
     }
 
-    const passwordHash = await bcrypt.hash(password, 10);
-
     // Check if the password matches
-    const isPasswordMatched = await user.comparePassword(passwordHash);
+    const isPasswordMatched = await user.comparePassword(password);
     if (!isPasswordMatched) {
       return next(new ErrorHandler("Invalid Email or Password", 401));
     }
