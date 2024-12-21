@@ -1,21 +1,16 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 import "./DivlayoutAuthPage.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const DivlayoutAuthPage = () => {
-
-  function validate() {
-    const mail = document.getElementById("email").value;
-    const regExp = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/;
-    regExp.test(mail) ? alert("You have entered a valid email") : alert("You have entered wrong email");
-  }
-
   // Connecting Backend to frontend of Signup page
 
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
-    name: "", email: "", password: ""
+    name: "",
+    email: "",
+    password: "",
   });
 
   let name, value;
@@ -25,20 +20,22 @@ const DivlayoutAuthPage = () => {
     value = e.target.value;
 
     setUser({ ...user, [name]: value });
-  }
+  };
 
   const PostData = async (e) => {
     e.preventDefault();
     try {
       const { name, email, password } = user;
-      const res = await fetch("https://idea-engine-backend-4gyo.vercel.app/api/v1/register", {
+      const res = await fetch("http://localhost:8000/api/v1/register", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name, email, password
-        })
+          name,
+          email,
+          password,
+        }),
       });
       // console.log(res);
       const data = await res.json(); // Error line
@@ -49,148 +46,108 @@ const DivlayoutAuthPage = () => {
       } else {
         window.alert("Registration Successfull");
         // console.log("Registration Successfull");
-        navigate('/login');
+        navigate("/login");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-
-
-  // const navigate = useNavigate();
-
-  //   const getUser = async () => {
-  //     try {
-  //         const response = await axios.get("http://localhost:8080/login/sucess", { withCredentials: true });
-
-  //         console.log("response",response)
-  //     } catch (error) {
-  //       navigate("/")
-  //     }
-  // }
-
-
-  // useEffect(() => {
-  //   getUser()
-  // }, [])
-
-
-  const loginwithgoogle = () => {
-    window.open("https://idea-engine-backend-4gyo.vercel.app/auth/google/callback", "_self")
-  }
-
+  };
 
   return (
-    <div className="register-page">
-    <div className="divlayout-auth-page-signup">
-      <div className="svg">
-        <img className="vector-icon" alt="" src="/vector.svg" />
-      </div>
-      <div className="divpage-fg">
-        <div className="section-signup">
-          <div className="heading-1">
-            <div className="welcome-to-dayzero">
-              Welcome To TEN-HealthEngine!
-            </div>
-          </div>
-          <div className="ppage-tagmargin">
-            <div className="blueprint-to-brilliance">
-              BLUEPRINT TO BRILLIANCE
-            </div>
-          </div>
-          <div className="heading-2margin">
-            <div className="heading-2">
-              <div className="a-blueprint-engine-container-signup">
-                <span className="a-blueprint-engine">{`A blueprint engine that converts your ideas into execution focused plan of action within `}</span>
-                <b>6 minutes</b>
-                <span className="a-blueprint-engine">.</span>
+    <div className="register-page mt-12">
+      <div className="divlayout-auth-page-signup">
+        <div className="svg">
+          <img className="vector-icon" alt="" src="/vector.svg" />
+        </div>
+        <div className="divpage-fg">
+          <div className="section-signup">
+            <div className="heading-1">
+              <div className="welcome-to-dayzero">
+                Welcome to the HealthEngine!
               </div>
             </div>
-          </div>
-        </div>
-        <div className="section1" style={{padding:'1.2rem 4rem'}}>
-          <div className="pform-title">
-            <div className="create-your-account-signup" style={{fontSize:'2.5rem'}}>
-              Create your account
-            </div>
-          </div>
-          <div className="pform-subtitle1">
-            <div className="fill-your-details">
-              Fill your details to get started
-            </div>
-          </div>
-          <div className="divor-box">
-{/*             <button className="button1">
-              <img className="svg-icon" alt="" src="/svg.svg" />
-              <div className="span1">
-                <div className="continue-with-google" onClick={loginwithgoogle}>
-                  Continue With Google
+            <div className="heading-2margin">
+              <div className="heading-2">
+                <div className="a-blueprint-engine-container-signup">
+                  <span className="a-blueprint-engine">{`A blueprint engine that converts your ideas into execution focused plan of action within `}</span>
+                  <b>6 minutes</b>
+                  <span className="a-blueprint-engine">.</span>
                 </div>
               </div>
-            </button> */}
-{/*             <div className="divline-signup">
-              <div className="span2">
-                <div className="or">OR</div>
-              </div>
-            </div> */}
+            </div>
           </div>
-          <div className="form-signup">
-            <input
-              className="input"
-              type="text"
-              name="name"
-              id="name"
-              autoComplete="off"
-              value={user.name}
-              onChange={handleInputs}
-              placeholder="Enter Your Name"
-            ></input>
+          <div className="section1" style={{ padding: "1.2rem 4rem" }}>
+            <div className="pform-title">
+              <div
+                className="create-your-account-signup"
+                style={{ fontSize: "2.5rem" }}
+              >
+                Create your account
+              </div>
+            </div>
+            <div className="pform-subtitle1">
+              <div className="fill-your-details">
+                Fill your details to get started
+              </div>
+            </div>
+            <div className="divor-box"></div>
+            <div className="form-signup">
+              <input
+                className="input"
+                type="text"
+                name="name"
+                id="name"
+                autoComplete="off"
+                value={user.name}
+                onChange={handleInputs}
+                placeholder="Enter Your Name"
+              ></input>
 
-            <input
-              className="input"
-              type="email"
-              name="email"
-              id="email"
-              autoComplete="off"
-              value={user.email}
-              onChange={handleInputs}
-              placeholder="Enter Your Email"
-            ></input>
+              <input
+                className="input"
+                type="email"
+                name="email"
+                id="email"
+                autoComplete="off"
+                value={user.email}
+                onChange={handleInputs}
+                placeholder="Enter Your Email"
+              ></input>
 
-            <input
-              className="input"
-              type="password"
-              name="password"
-              id="password"
-              autoComplete="off"
-              value={user.password}
-              onChange={handleInputs}
-              placeholder="Enter Unique Password"
-            ></input>
+              <input
+                className="input"
+                type="password"
+                name="password"
+                id="password"
+                autoComplete="off"
+                value={user.password}
+                onChange={handleInputs}
+                placeholder="Enter Unique Password"
+              ></input>
 
-            <button
-              className="button2"
-              type="submit"
-              name="signup"
-              id="signup"
-              value="Register"
-              onClick={PostData}
-            >
-              <div className="create-an-account">Create an account</div>
-            </button>
-            <div className="pswitch-link">
-              <div className="do-you-already-container-signup">
-                <span>{`Do you already have an account? `}</span>
-                <Link to="/login">
-                  <span className="login">Login</span>
-                </Link>
+              <button
+                className="button2"
+                type="submit"
+                name="signup"
+                id="signup"
+                value="Register"
+                onClick={PostData}
+              >
+                <div className="create-an-account">Create an account</div>
+              </button>
+              <div className="pswitch-link">
+                <div className="do-you-already-container-signup">
+                  <span>{`Do you already have an account? `}</span>
+                  <Link to="/login">
+                    <span className="login">Login</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   );
 };
 

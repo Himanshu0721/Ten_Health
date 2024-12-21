@@ -1,16 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from 'react';
-import "./Login.css"
+import React, { useEffect, useState } from "react";
+import "./Login.css";
 import Cookies from "js-cookie";
-import { Box, CircularProgress } from '@mui/material'
-
+import { Box, CircularProgress } from "@mui/material";
+import axios from "axios";
 const DivlayoutAuthPage = () => {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(false);
   const [percent, setPercent] = useState(10);
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   useEffect(() => {
-    console.log("question " + percent); // Logs the updated value whenever percent changes
+    console.log("question " + percent);
   }, [percent]);
 
   // function validate() {
@@ -22,96 +22,83 @@ const DivlayoutAuthPage = () => {
   //Connection Login Page to backend
 
   // const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const loginUser = async (e) => {
     e.preventDefault();
-    setLogin(true)
-    setPercent(prevPercent => prevPercent + 20);
-
-    const res = await fetch('https://idea-engine-backend-4gyo.vercel.app/api/v1/login', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email,
-        password
-      })
+    setLogin(true);
+    setPercent((prevPercent) => prevPercent + 20);
+    console.log("email: ", email);
+    console.log("password: ", password);
+    const res = await axios.post("http://localhost:8000/api/v1/login", {
+      email,
+      password,
     });
-    setPercent(prevPercent => prevPercent + 20);
+    setPercent((prevPercent) => prevPercent + 20);
 
-    const data = await res.json();
+    const data = res.data;
 
     if (res.status === 400 || res.status === 401 || !data) {
-      setLogin(false)
+      setLogin(false);
       window.alert("Invalid Credientials");
       // console.log("Invalid");
-    }
-    else {
+    } else {
       // dispatch({type: "USER", payload: true});
 
       // window.alert("Login Successfull");
       // const time = new Date(data.options.expires).toUTCString()
       // const expirationDate = new Date();
-      // expirationDate.setDate(expirationDate.getDate() + 5);      
-      setPercent(prevPercent => prevPercent + 20);
+      // expirationDate.setDate(expirationDate.getDate() + 5);
+      setPercent((prevPercent) => prevPercent + 20);
 
       Cookies.set("token", data.token, {
         expires: 5,
-        path: '/welcome-page',
-        httpOnly: true
-      })
-      setPercent(prevPercent => prevPercent + 10);
+        path: "/welcome-page",
+        httpOnly: true,
+      });
+      setPercent((prevPercent) => prevPercent + 10);
 
-      Cookies.set('token', data.token, {
+      Cookies.set("token", data.token, {
         expires: 5,
-        path: '/qna-page'
-      })
-
-      document.cookie = `token=${data.token}; expires=${new Date(data.options.expires).toUTCString()}; path='/welcome-page'`
-      document.cookie = `token=${data.token}; expires=${new Date(data.options.expires).toUTCString()}; path='/qna-page'`
-      setPercent(prevPercent => prevPercent + 20);
-
-      setLogin(false)
-      navigate('/welcome-page')
-    }
-  }
-
-  const googleAuth = async (e) => {
-    setLogin(true)
-    e.preventDefault();
-    try {
-      const res = await fetch('https://idea-engine-backend-4gyo.vercel.app/auth/google/callback', {
-        method: "GET",
-        mode: "no-cors"
+        path: "/qna-page",
       });
 
-      if (!res.ok) {
-        setLogin(false)
-        throw new Error('Failed to authenticate with Google');
-      }
+      document.cookie = `token=${data.token}; expires=${new Date(
+        data.options.expires
+      ).toUTCString()}; path='/welcome-page'`;
+      document.cookie = `token=${data.token}; expires=${new Date(
+        data.options.expires
+      ).toUTCString()}; path='/qna-page'`;
+      setPercent((prevPercent) => prevPercent + 20);
 
-      const data = await res.json();
-      if (!data.token) {
-        setLogin(false)
-        throw new Error('Token not found in response');
-      }
-
-      // localStorage.setItem('token', data.token);
-      navigate('/welcome-page')
-    } catch (error) {
-      console.error('Error:', error.message);
-      window.alert('Failed to authenticate with Google');
+      setLogin(false);
+      navigate("/welcome-page");
     }
-  }
+  };
 
   return (
     <>
       {login ? (
-        <div style={{ backgroundColor: '#000000', height: '100vh', width: '100vw', zIndex: '20', position: 'fixed', top: '0', left: '0', right: '0', }}>
-          <Box position={'relative'} justifyContent={'center'} height={'100vh'} alignItems={'center'} display="flex">
+        <div
+          style={{
+            backgroundColor: "#000000",
+            height: "100vh",
+            width: "100vw",
+            zIndex: "20",
+            position: "fixed",
+            top: "0",
+            left: "0",
+            right: "0",
+          }}
+        >
+          <Box
+            position={"relative"}
+            justifyContent={"center"}
+            height={"100vh"}
+            alignItems={"center"}
+            display="flex"
+          >
             <CircularProgress variant="determinate" size={55} value={percent} />
             <Box
               bottom={0}
@@ -158,31 +145,13 @@ const DivlayoutAuthPage = () => {
               <div>
                 <div className="section1">
                   <div className="pform-title">
-                    <div style={{fontSize:'2.5rem'}}>Welcome Back</div>
+                    <div style={{ fontSize: "2.5rem" }}>Welcome Back</div>
                   </div>
                   <div className="pform-subtitle">
                     <div className="fill-your-details">
                       Fill your details to get started
                     </div>
                   </div>
-                  {/* <div className="divor-box">
-                    <button className="button1">
-                      <img className="svg-icon" alt="" src="/svg.svg" />
-                      <div className="span1">
-                        <div
-                          className="continue-with-google"
-                          onClick={googleAuth}
-                        >
-                          Continue With Google
-                        </div>
-                      </div>
-                    </button>
-                    <div className="divline">
-                      <div className="span2">
-                        <div className="or">OR</div>
-                      </div>
-                    </div>
-                  </div> */}
                   <div className="form">
                     <input
                       className="input"
