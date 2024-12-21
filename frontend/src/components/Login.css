@@ -4,12 +4,12 @@
   font-weight: 500;
   font-size: 60px;
   text-align: center;
-  color: lightgrey;
-  margin-top: -10px;
+  color: white;
+  margin-top: 1.5rem;
 }
 
 .divlayout-auth-page {
-  height: 900px;
+  height: auto;
 }
 
 .section {
@@ -42,7 +42,7 @@
   padding-top: 20px;
   text-align: center;
   margin-left: 10px;
-  color: rgb(208, 202, 202);
+  color: lightgray;
   font-size: 20px;
 }
 
@@ -50,14 +50,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(21, 21, 21);
-  border-radius: 10px;
+  background-color: #012c64;
+  border-radius: 16px;
   height: fit-content !important;
   margin-top: 50px;
   width: 500px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  border: 2px solid #0077b6;
 }
 
 .create-your-account {
@@ -66,12 +67,12 @@
 }
 
 .fill-your-details {
-  color: grey;
+  color: lightgray;
 }
 
 .pform-title {
   margin-top: 30px;
-  color: grey;
+  color: lightgrey;
 }
 
 .pform-subtitle {
@@ -134,12 +135,11 @@
 .input {
   height: 52px;
   font-size: 15px;
-  background: transparent;
   padding: 0 var(--space-4);
-  border: 1px solid #32343a;
-  background-color: black !important;
-  color: white !important;
-  border-radius: 5px;
+  border: 0px solid white;
+  background-color: lightblue;
+  color: black;
+  border-radius: 8px;
   width: 270px;
   margin: 0 auto;
   padding-left: 15px;
@@ -153,22 +153,23 @@
 
 .button2 {
   cursor: pointer;
-  border-radius: 5px;
-  background-color: rgb(57, 57, 243);
-  border: 1px solid mediumblue;
-  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: #023578;
+  color: white;
+  border-radius: 10px;
   height: 52px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 20px;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  color: white
+  padding: 12px 0;
+  border: 0.5px solid #b5c7dc;
+}
+
+.button2:hover {
+  background-color: #5b8ac7;
+  color: black;
 }
 
 .do-you-already-container {
-  color: rgb(157, 154, 154);
+  color: lightgrey;
 }
 
 .pswitch-link {
@@ -178,7 +179,8 @@
 }
 
 .login {
-  color: rgb(27, 27, 223);
+  color: white;
+  font-weight: bold;
 }
 
 .login:hover {
@@ -232,3 +234,7 @@
   }
 }
 
+.login-page {
+  background: linear-gradient(120deg,#023e8a,#0077b6);
+  height: 100vh;
+}

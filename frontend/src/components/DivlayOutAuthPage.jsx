@@ -81,6 +81,7 @@ const DivlayoutAuthPage = () => {
 
 
   return (
+    <div className="register-page">
     <div className="divlayout-auth-page-signup">
       <div className="svg">
         <img className="vector-icon" alt="" src="/vector.svg" />
@@ -89,7 +90,7 @@ const DivlayoutAuthPage = () => {
         <div className="section-signup">
           <div className="heading-1">
             <div className="welcome-to-dayzero">
-              Welcome To Ten-IdeaEngine!
+              Welcome To TEN-HealthEngine!
             </div>
           </div>
           <div className="ppage-tagmargin">
@@ -107,13 +108,13 @@ const DivlayoutAuthPage = () => {
             </div>
           </div>
         </div>
-        <div className="section1">
+        <div className="section1" style={{padding:'1.2rem 4rem'}}>
           <div className="pform-title">
-            <div className="create-your-account-signup">
+            <div className="create-your-account-signup" style={{fontSize:'2.5rem'}}>
               Create your account
             </div>
           </div>
-          <div className="pform-subtitle">
+          <div className="pform-subtitle1">
             <div className="fill-your-details">
               Fill your details to get started
             </div>
@@ -189,6 +190,7 @@ const DivlayoutAuthPage = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

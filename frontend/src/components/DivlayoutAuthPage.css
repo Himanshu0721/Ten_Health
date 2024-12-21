@@ -1,11 +1,13 @@
 
+
   .welcome-to-dayzero {
     position: relative;
     line-height: 75px;
     font-weight: 500;
     font-size: 60px;
     text-align: center;
-    color: lightgrey
+    color: white;
+    margin-top: 1.5rem;
   }
   .divlayout-auth-page-signup {
     height: 0px;
@@ -36,7 +38,7 @@
     width: 95%;
     padding-top: 15px;
     text-align: center;
-    color: rgb(208, 202, 202);
+    color: lightgray;
     font-size: 20px;
   }
   /* .container {
@@ -74,8 +76,9 @@
   .pform-title {
     margin-top: 30px;
   }
-  .pform-subtitle {
-    margin-top: 17px;
+  .pform-subtitle1 {
+    margin-top: 12px;
+    margin-bottom: 18px;
   }
 
   .button1 {
@@ -84,8 +87,7 @@
     flex-direction: row;
     cursor: pointer;
     border-radius: 5px;
-    /* box-sizing: border-box; */
-    width: 380px;
+    width: 270px;
     height: 52px;
     flex-direction: row;
     padding: var(--padding-sm) 99.41000366210938px var(--padding-sm) 99.94999694824219px;
@@ -166,6 +168,11 @@
   }
   .login:hover {
     text-decoration: underline;
+  }
+
+  .register-page {
+    background: linear-gradient(-8deg,#023e8a,#0077b6);  
+    height: 100vh;
   }
 
   

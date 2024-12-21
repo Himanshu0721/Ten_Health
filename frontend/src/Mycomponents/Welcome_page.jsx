@@ -71,23 +71,20 @@ function Welcome_page() {
                     <span className='pro'>Pro</span>
                     <span className='pro'>Premium</span>
                 </div> */}
-        <h1 className="title mt-3">Welcome to Ten-IdeaEngine</h1>
-        <h3 className="subtitle mt-3">BLUEPRINT TO BRILLIANCE</h3>
-        <div className="content mt-5">
-          <p className="para1">
-            We are here for you if, you’re planning to start a company, need any
-            marketing, tech or production services or need an exhaustive scope
-            of work for niche services such as SEO, Ads, Branding etc.
+        <h1 className="title" style={{marginTop:'0'}}>Welcome to TEN-HealthEngine</h1>
+        <h3 className="subtitle" style={{marginTop:'1.5rem'}}>BLUEPRINT TO BRILLIANCE</h3>
+        <div className="content" style={{marginTop:'2rem'}}>
+          <p className="para1" style={{padding:'1rem', fontSize:'1rem'}}>
+          We are here for you if you’re planning to improve your health, need personalized wellness strategies, mental health support, or an exhaustive scope of work for niche services such as fitness planning, diet customization, mental well-being programs, and more.
           </p>
-          <p className="para2 mt-2">
+          <p className="para2" style={{padding:'1rem', fontSize:'1rem'}}>
             <b>
-              Disclaimer : We’re only your planners NOT your implementers. Make
-              sure that your creative execution is done right
+            Disclaimer: We’re only your planners, NOT your implementers. Make sure that your health execution is done right.
             </b>
           </p>
         </div>
         <Link to="/qna-page">
-          <button className="create-btn mt-4">Create Free Blueprint</button>
+          <button className="create-btn" style={{marginTop:'1.5rem'}}>Create Free Blueprint</button>
         </Link>
         {/* <link type="button" href="/Main_Page" className='create-btn mt-4'>Create Free Blueprint</link> */}
       </div>

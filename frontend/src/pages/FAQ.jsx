@@ -30,10 +30,10 @@ function Faq() {
         </h1>
         <div className="div-top">
           {faqData.map((item, index) => (
-            <div className="faq-item" key={index}>
+            <div onClick={() => toggleAnswer(index)} className="faq-item" key={index}>
               <div className="header">
                 <h3>{item.question}</h3>
-                <button onClick={() => toggleAnswer(index)}>
+                <button>
                   {expanded[index] ? <RxCross2 /> : <FaPlus />}
                 </button>
               </div>

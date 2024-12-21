@@ -128,7 +128,7 @@ const DivlayoutAuthPage = () => {
           </Box>
         </div>
       ) : (
-        <div>
+        <div className="login-page">
           <div className="divlayout-auth-mypage mx-auto">
             <div className="svg">
               <img className="vector-icon" alt="" src="/vector.svg" />
@@ -137,7 +137,7 @@ const DivlayoutAuthPage = () => {
               <div className="section">
                 <div className="heading-1">
                   <div className="welcome-to-dayzero-login">
-                    Welcome To Ten-IdeaEngine!
+                    Welcome To TEN-HealthEngine!
                   </div>
                 </div>
                 <div className="ppage-tagmargin">
@@ -155,10 +155,10 @@ const DivlayoutAuthPage = () => {
                   </div>
                 </div>
               </div>
-              <div style={{ width: "100%", height: "" }}>
+              <div>
                 <div className="section1">
                   <div className="pform-title">
-                    <div className="welcome-back">Welcome Back</div>
+                    <div style={{fontSize:'2.5rem'}}>Welcome Back</div>
                   </div>
                   <div className="pform-subtitle">
                     <div className="fill-your-details">
