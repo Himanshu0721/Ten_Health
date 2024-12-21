@@ -117,8 +117,6 @@
 //           <div className="cardss cardss-2">
 //             <div class="logoo g-2" >
 //             <div className='row'>
-             
-                
 
 //                  <div className='col-lg-2 col-md-6 col-12 cardss'>
 //                     <h4>Platform</h4>
@@ -130,7 +128,6 @@
 //                    </ul>
 //                  </div>
 
-                 
 //                  <div className=' col-lg-2 col-md-6 col-12 cardss'>
 //                     <h4>Company</h4>
 //                    <ul className='list-unstyled'>
@@ -141,7 +138,6 @@
 //                    </ul>
 //                  </div>
 
-                 
 //                  <div className='col-lg-2 col-md-6 col-12 cardss'>
 //                     <h4>Legal</h4>
 //                    <ul>
@@ -172,52 +168,72 @@ import { FaLinkedin, FaYoutube, FaTwitter, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer>
-        {/* Bottom Footer */}
-        <div className='bg-black px-4 md:px-17 lg:px-28  '>
+      {/* Bottom Footer */}
+      <div className="bg-blue-950 px-4 md:px-17 lg:px-28  ">
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          {/* 1. Left Part  */}
+          <div>
+            <h1 className="text-white font-bold text-xl mt-7">
+              TEN-HealthEngine
+            </h1>
+            <p className="text-gray-500 text-sm ml-0">
+              Turning Your Vision into an Actionable Blueprint to Brilliance.
+            </p>
+          </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3'>
-                {/* 1. Left Part  */}
-                <div>
-                    <h1 className='text-white font-bold text-xl mt-7'>TEN-HealthEngine</h1>
-                    <p className='text-gray-500 text-sm ml-0'>Turning Your Vision into an Actionable Blueprint to Brilliance.</p>
-                </div>
+          {/* 2. Middle Part  */}
+          <div>
+            <h1 className="text-white text-xl font-bold mt-6 ml-0">Platform</h1>
+            <ul className="text-gray-500">
+              <li>
+                <a href="#" className="hover:text-white ml-0">
+                  Feature
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white ml-0">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white ml-0">
+                  Login
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white ml-0">
+                  SignUp
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white ml-0">
+                  FAQ
+                </a>
+              </li>
+            </ul>
+          </div>
 
-                {/* 2. Middle Part  */}
-                <div>
-                    <h1 className='text-white text-xl font-bold mt-6 ml-0'>Platform</h1>
-                    <ul className='text-gray-500'>
-                        <li><a href="#" className='hover:text-white ml-0'>Feature</a></li>
-                        <li><a href="#" className='hover:text-white ml-0'>Pricing</a></li>
-                        <li><a href="#" className='hover:text-white ml-0'>Login</a></li>
-                        <li><a href="#" className='hover:text-white ml-0'>SignUp</a></li>
-                        <li><a href="#" className='hover:text-white ml-0'>FAQ</a></li>
-                    </ul>
-                </div>
-
-                {/* 3. Right Part  */}
-                <div className=' py-6 px-4'>
-                    <h1 className='text-white font-bold text-xl'>Follow Us</h1>
-                    <div className='flex gap-3 mt-4'>
-                        <FaLinkedin className="text-2xl hover:text-white text-gray-500" />
-                        <FaYoutube className="text-2xl hover:text-white text-gray-500" />
-                        <FaTwitter className="text-2xl hover:text-white text-gray-500" />
-                        <FaInstagram className="text-2xl hover:text-white text-gray-500" />
-                    </div>
-                    
-                </div>
-
+          {/* 3. Right Part  */}
+          <div className=" py-6 px-4">
+            <h1 className="text-white font-bold text-xl">Follow Us</h1>
+            <div className="flex gap-3 mt-4">
+              <FaLinkedin className="text-2xl hover:text-white text-gray-500" />
+              <FaYoutube className="text-2xl hover:text-white text-gray-500" />
+              <FaTwitter className="text-2xl hover:text-white text-gray-500" />
+              <FaInstagram className="text-2xl hover:text-white text-gray-500" />
             </div>
-            
-            
-              
-            <div className='flex justify-center items-center text-center mt-7 p-4'>
-                <p className='text-gray-400 hover:text-white mt-10'> TEN Health Engine © 2024 All Rights Reserved</p>
-            </div>
-
+          </div>
         </div>
 
+        <div className="flex justify-center items-center text-center mt-7 p-4">
+          <p className="text-gray-400 hover:text-white mt-10">
+            {" "}
+            TEN Health Engine © 2024 All Rights Reserved
+          </p>
+        </div>
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -114,8 +114,8 @@ export default function HomePage() {
       </div>
 
       <div className="bg-overlay">
-        <div className="spze"></div>
-{/*         <div className="img-1">
+        <div className="spze mt-4"></div>
+        {/*         <div className="img-1">
           <a href="https://www.producthunt.com/products/dayzero-2#dayzero-v2">
             <img src={featured} alt="hello" />
           </a>
@@ -164,9 +164,9 @@ export default function HomePage() {
       </div> */}
 
       <Offering />
-{/*       <Features /> */}
-{/*       <ThirdPage /> */}
-{/*      <Pricing />  */}
+      {/*       <Features /> */}
+      {/*       <ThirdPage /> */}
+      {/*      <Pricing />  */}
       <GlobalSec />
       <FAQ />
       <Footer />

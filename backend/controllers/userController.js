@@ -73,22 +73,23 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
 });
 
 const genAI = new GoogleGenerativeAI("AIzaSyAM1T6li4pgjil1q55wbC_UvYq-cbNJs2I");
-const answer = async (question) => {
-  try {
-    // For text-only input, use the gemini-pro model
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const prompt = question;
-    const result = await model.generateContent(prompt);
-    // const response = await result.response;
-    const res = result.response;
-    const text = res.text();
-    // console.log(text);
-    return text;
-  } catch (error) {
-    window.alert(error);
-  }
-};
+// const answer = async (question) => {
+//   try {
+//     // For text-only input, use the gemini-pro model
+//     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+//     const prompt = question;
+//     const result = await model.generateContent(prompt);
+//     // const response = await result.response;
+//     const res = result.response;
+//     const text = res.text();
+//     // console.log(text);
+//     return text;
+//   } catch (error) {
+//     window.alert(error);
+//   }
+// };
 
+//todo
 export const generatePdf = catchAsyncErrors(async (req, res, next) => {
   try {
     const { text } = req.body;
