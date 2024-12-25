@@ -29,15 +29,15 @@ function MentalHealth() {
   const ref = useRef(null);
   const renderQuestions = () => {
     return Object.keys(questions).map((key) => (
-      <div className="card w-100 max-w-lg" key={key}>
+      <div className="card" key={key}>
         <div className="card-header">
           <br></br>
-          <h5 className="card-title">Question {key}</h5>
-          <p className="card-text">{questions[key].question}</p>
+          <h5 className="card-title text-xl">Question {key}</h5>
+          <p className="card-text text-lg mb-3">{questions[key].question}</p>
         </div>
-        <div className="card-body">
+        <div className="card-body mt-3">
           {questions[key].options.map((option, index) => (
-            <div className="form-check" key={index}>
+            <div className="form-check mt-1" key={index}>
               <input
                 className="form-check-input border-2 border-dark"
                 type="radio"
@@ -52,6 +52,7 @@ function MentalHealth() {
               </label>
             </div>
           ))}
+          <hr className="mt-3" />
         </div>
       </div>
     ));
@@ -73,10 +74,10 @@ function MentalHealth() {
   return (
     <div ref={ref} className="container-fluid">
       <div className="row">
-        <div className="col-12">
+        <div className="w-[65%]">
           <h1 className="title text-center mb-3">Mental Health</h1>
-          <form className="card w-100 max-w-lg">
-            <h4 className="card-title text-center mt-4">STEP 1 OF 5</h4>
+          <form className="bg-[#121212] rounded-xl ml-7 py-5 px-10">
+            <h4 className="card-title text-center font-semibold text-[1.8rem] mb-2">STEP 5 OF 5</h4>
             <div>{renderQuestions()}</div>
           </form>
         </div>

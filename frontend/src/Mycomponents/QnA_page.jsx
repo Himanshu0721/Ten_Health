@@ -595,7 +595,7 @@ function QnA_page() {
             speed={70}
             style={{
               fontSize: "1.5rem",
-              color: "#white",
+              color: "white",
               flex: "1",
               textAlign: "center",
               gap: "1px",
@@ -782,28 +782,28 @@ function QnA_page() {
 
             <div className="row qna-box">
               <div className="col-lg-4 col-md-6 col-12" style={{width:'100%'}} onClick={ideaHandler}>
-                <div className="qna-border" style={{ border: buttonidea }}>
+                <div className="qna-border flex flex-col items-center" style={{ border: buttonidea }}>
                   <IoFitnessOutline size={"4rem"} />
                   <div className="mydivider mt-4"></div>
                   <p className="qna-text">Improving fitness</p>
                 </div>
               </div>
               <div className="col-lg-4 col-md-6 col-12" style={{width:'100%'}} onClick={startupHandler}>
-                <div className="qna-border" style={{ border: buttonstartup }}>
+                <div className="qna-border flex flex-col items-center" style={{ border: buttonstartup }}>
                   <FaLaptopMedical size={'4rem'} />
                   <div className="mydivider mt-4"></div>
                   <p className="qna-text">General wellness</p>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-6 col-12" style={{width:'100%'}} onClick={brandHandler}>
-                <div className="qna-border" style={{ border: buttonbrand }}>
+              <div className="text text-white" style={{width:'100%'}} onClick={brandHandler}>
+                <div className="qna-border flex flex-col items-center" style={{ border: buttonbrand }}>
                   <RiMentalHealthLine size={'4rem'} />
                   <div className="mydivider mt-4"></div>
                   <p className="qna-text">Personalized health plan</p>
                 </div>
               </div>
             </div>
-            </div>
+            </div> 
             <div ref={answersEndRef} />
           </div>
 
