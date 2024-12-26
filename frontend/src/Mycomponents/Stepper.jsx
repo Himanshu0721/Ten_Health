@@ -19,43 +19,44 @@ function Stepper({ steps }) {
     console.log("question " + percent); // Logs the updated value whenever percent changes
   }, [percent]);
 
+
   function validations(step) {
-    if (step === 1 && Object.keys(domain['healthMetrices']).length !== 6) {
+    if (step === 1 && Object.keys(domain.healthMetrices).length !== 6) {
       return true;
     }
-    if (step === 2 && Object.keys(domain['DietaryPreferences']).length !== 5) {
+    if (step === 2 && Object.keys(domain.DietaryPreferences).length !== 5) {
       return true;
     }
-    if (step === 3 && Object.keys(domain['PhysicalActivities']).length !== 5) {
+    if (step === 3 && Object.keys(domain.PhysicalActivities).length !== 5) {
       return true;
     }
-    if (step === 4 && Object.keys(domain['SleepPatterns']).length !== 5) {
+    if (step === 4 && Object.keys(domain.SleepPatterns).length !== 5) {
       return true;
     }
-    if (step === 5 && Object.keys(domain['MentalHealth']).length !== 5) {
+    if (step === 5 && Object.keys(domain.MentalHealth).length !== 5) {
       return true;
     }
   }
 
+
   const generatePrompt = async (questions, answers) => {
     try {
-      let buisnessName = answers[questions.indexOf('business name')]
-      let buisnessStage = answers[questions.indexOf('business stage')]
-      let buisnessDescription = answers[questions.indexOf('business description')]
-      let numberOfEmployees = answers[questions.indexOf('Number of employees')]
-      let buisnessOffers = answers[questions.indexOf('Do you offer a product or service?')]
-      let customerGetMode = answers[questions.indexOf('How can customer get your product or service?')]
-      let regionOfService = answers[questions.indexOf('Where do you serve your customers?')]
-      let productServiceName = answers[questions.indexOf('Product or Service Name')]
-      let productServiceDescription = answers[questions.indexOf('Product or Service Description')]
-      let intialInvestment = answers[questions.indexOf('Total Initial Investment')]
-      let firstYearRevenue = answers[questions.indexOf('Expected First Year Revenue')]
-      let rateOfGrowthPerYear = answers[questions.indexOf('How much do you expect your revenue to grow each year?')]
-      let yearlyBuisnessOperatingCost = answers[questions.indexOf('Yearly Business Operations Cost')]
+      let healthStatus = answers[questions.indexOf('health status')]
+      let activityMember = answers[questions.indexOf('activity members')]
+      let healthGoal = answers[questions.indexOf('health goal')]
+      let healthTools = answers[questions.indexOf('health tools')]
+      let planPreference = answers[questions.indexOf('plan preference')]
+      let healthTitle = answers[questions.indexOf('health goal title')]
+      let healthDescription = answers[questions.indexOf('description about your health')]
+      let healthInvestement = answers[questions.indexOf('health investement')]
+      let expectations = answers[questions.indexOf('expectations')]
+      let healthProgress = answers[questions.indexOf('health progress')]
+      let healthExpenses = answers[questions.indexOf('health expenses')]
+      let healthChallenges = answers[questions.indexOf('Challenges')]
 
-      let prompt = `Create an end to end business plan as well as guidance plan that helps me create a business by the name of ${buisnessName}.It is in the stage of ${buisnessStage}.${buisnessName} is suppose to be ${buisnessDescription}.At this stage our comapny contains ${numberOfEmployees} number of employees. ${buisnessName} offers ${buisnessOffers}. A customer gets my ${buisnessOffers} from ${customerGetMode} mode. We Serve our customers in ${regionOfService}. Our ${buisnessOffers} name is ${productServiceName}. ${productServiceName} is suppose to be ${productServiceDescription}. Our Intial investment is ${intialInvestment}.Our expected first year revenue is ${firstYearRevenue} And i want to grow my revenue at the rate of ${rateOfGrowthPerYear} Our buisness yearly operating buisness cost is ${yearlyBuisnessOperatingCost}.`
+      let prompt = `Create an end-to-end health and wellness plan tailored to my needs. My current health status is ${healthStatus}, and I am part of ${activityMember}. My primary health goal is ${healthGoal}, and I plan to use ${healthTools} to achieve it. I prefer a plan that aligns with ${planPreference}. The title of my health goal is "${healthTitle}", and the description is "${healthDescription}". I am willing to invest ${healthInvestement} in my health journey, and I have the following expectations: ${expectations}. My current health progress is ${healthProgress}, and my health expenses are ${healthExpenses}. However, I face the following challenges: ${healthChallenges}. Please create a personalized and comprehensive plan to help me overcome these challenges, track my progress, and achieve my health goals efficiently.`;      
+      return prompt;
 
-      return prompt
     } catch (error) {
       window.alert(error)
     }
@@ -145,83 +146,81 @@ function Stepper({ steps }) {
       text['commonText'] = commonText
       setPercent(prevPercent => prevPercent + 8);
 
-      let executiveText = await answer(`${tPrompt} + \nPlease explain in more detail about the Executive summary statement`);
+      let executiveText = await answer(`${tPrompt} + \nPlease explain in more detail about the Executive Summary of my health plan.`);
       text['executiveText'] = executiveText
       setPercent(prevPercent => prevPercent + 2);
-      let marketText = await answer(`${tPrompt} + \nPlease explain in more detail about the Market Analysis statement`);
-      text['marketText'] = marketText
+      let healthAnalysisText = await answer(`${tPrompt} + \nPlease explain in more detail about the Health Analysis and Current Status.`);
+      text['healthAnalysisText'] = healthAnalysisText
       setPercent(prevPercent => prevPercent + 2);
 
-      let productText = await answer(`${tPrompt} + \nPlease explain in more detail about the Product Description statement`);
-      text['productText'] = productText
+      let healthGoalText = await answer(`${tPrompt} + \nPlease explain in more detail about the Health Goals and Objectives.`);
+      text['healthGoalText'] = healthGoalText
       setPercent(prevPercent => prevPercent + 2);
-      let buisnessText = await answer(`${tPrompt} + \nPlease explain in more detail about the Business Model statement`);
-      text['buisnessText'] = buisnessText
-      setPercent(prevPercent => prevPercent + 2);
-
-      let financialText = await answer(`${tPrompt} + \nPlease explain in more detail about the Financial Plan statement`);
-      text['financialText'] = financialText
+      let healthStrategyText = await answer(`${tPrompt} + \nPlease explain in more detail about the Health Improvement Strategies.`);
+      text['healthStrategyText'] = healthStrategyText
       setPercent(prevPercent => prevPercent + 2);
 
-      let marketingText = await answer(`${tPrompt} + \nPlease explain in more detail about the Marketing and Sales Strategy statement`);
-      text['marketingText'] = marketingText
-      setPercent(prevPercent => prevPercent + 2);
-      let guidanceText = await answer(`${tPrompt} + \nPlease explain in more detail about the Guidance Plan statement`);
-      text['guidanceText'] = guidanceText
+      let financialPlanText = await answer(`${tPrompt} + \nPlease explain in more detail about the Financial Plan for health-related expenses.`);
+      text['financialPlanText'] = financialPlanText
       setPercent(prevPercent => prevPercent + 2);
 
-      let missionText = await answer(`${tPrompt} + \nPlease explain in more detail about the Mission Statement statement`);
-      text['missionText'] = missionText
+      let lifestyleChangesText = await answer(`${tPrompt} + \nPlease explain in more detail about the Recommended Lifestyle Changes.`);
+      text['lifestyleChangesText'] = lifestyleChangesText
+      setPercent(prevPercent => prevPercent + 2);
+      let progressTrackingText = await answer(`${tPrompt} + \nPlease explain in more detail about the Progress Tracking and Monitoring Plan.`);
+      text['progressTrackingText'] = progressTrackingText
       setPercent(prevPercent => prevPercent + 2);
 
-      let visionText = await answer(`${tPrompt} + \nPlease explain in more detail about the Vision Statement statement`);
-      text['visionText'] = visionText
+      let healthMissionText = await answer(`${tPrompt} + \nPlease explain in more detail about the Mission Statement for my health journey.`);
+      text['healthMissionText'] = healthMissionText
       setPercent(prevPercent => prevPercent + 2);
 
-      let { technology } = domain
-      let technologyPrompt = `Our buisness offers ${technology['What awesome stuff will your business offer?']}. we have ${technology['How do you figure out what to make and how to make it?']} to figure out what to make and how to make it. We are looking for ${technology['How much do you expect to make, and how much will it cost to get started?']}. ${technology['What could go wrong with your business, and how will you handle it?']} is a threat for my buisness. We tell people about our awesome products through ${technology['How will you tell people about your awesome products?']}. Our Customers get product or service through ${technology['How can customers get your product or service?']}.  My buisness goal is ${technology['What goals are you aiming for, and how will you track your progress?']}`
-      // My Plan for bringing in cash by ${ technology["What's your plan for bringing in cash ?"] }.
-      let technologyText = await answer(technologyPrompt)
-      text['technologyText'] = technologyText
+      let healthVisionText = await answer(`${tPrompt} + \nPlease explain in more detail about the Vision Statement for my health and wellness.`);
+      text['healthVisionText'] = healthVisionText
+      setPercent(prevPercent => prevPercent + 2);
+
+      // let { healthMatrices } = domain
+      // console.log(domain[healthMatrices])
+      let healthMatricesPrompt = `Our health matrix system starts by identifying your current weight: ${domain.healthMatrices[1]}. Next, we assess your height: ${domain.healthMatrices[2]} to calculate BMI and understand your physical proportions. we also check for known medical conditions: ${domain.healthMatrices[3]}, and monitor your blood pressure range: ${domain.healthMatrices[4]}. Your BMI status is tracked as: ${domain.healthMatrices[5]}. Additionally, we take note of allergies: ${domain.healthMatrices[6]} to ensure a comprehensive health overview. Our goal is to provide personalized health recommendations and improvements based on these metrics.`;
+
+      let healthMatricesText = await answer(healthMatricesPrompt)
+      text['healthMatricesText'] = healthMatricesText
       setPercent(prevPercent => prevPercent + 9);
       console.log("login " + percent)
 
-      let { digital } = domain
-      let digitalPrompt = `We are targeting ${digital['types of clients']} clients for our digital marketing services. We want to offer ${digital['specific services you will offer']} services in social media marketing(YouTube, Facebook, Instagram) and performance marketing (Ads), including campaign creation, optimization, and analytics. We plan to integrate social media marketing efforts ${digital['plan to integrate social media marketing efforts']} across YouTube, Facebook, and Instagram with performance marketing campaigns to create cohesive and impactful digital marketing strategies for our clients. ${digital['strategies will you employ to effectively target and engage audiences']} strategies we will employ to effectively target and engage audiences on each social media platform (YouTube, Facebook, Instagram) and through performance marketing ads, ensuring maximum reach and conversion potential. We will allocate budgets between social media marketing efforts and performance marketing ad campaigns, considering factors such as platform costs, ad bidding strategies, and client goals ${digital['How will you allocate budgets between social media marketing efforts and performance marketing ad campaigns, considering factors such as platform costs, ad bidding strategies, and client goals?']}. ${digital["What metrics and analytics will you use to measure the success of your social media marketing efforts on YouTube, Facebook, and Instagram, as well as the performance of your ad campaigns, and how will you report these insights to"]} metrics and analytics we will use to measure the success of our social media marketing efforts on YouTube, Facebook, and Instagram, as well as the performance of our ad campaigns. ${digital['How do you plan to develop compelling ad creatives and messaging that resonate with target audiences across social media platforms (YouTube, Facebook, Instagram) and performance marketing campaigns, driving engagement and conversions?']} plan to develop compelling ad creatives and messaging that resonate with target audiences across social media platforms (YouTube, Facebook, Instagram) and performance marketing campaigns, driving engagement and conversions.`
-      let digitalText = await answer(digitalPrompt)
-      text['digitalText'] = digitalText
-      setPercent(prevPercent => prevPercent + 9);
-      console.log("login " + percent)
-
-
-      let { influencer } = domain
-      let influencerPrompt = `${influencer['What sets your influencer marketing business apart from competitors?']} sets my influencer marketing business apart from competitors. ${influencer['How do you plan to establish and communicate your brand identity to resonate with your target audience?']} is my plan to establish and communicate my brand identity to resonate with my target audience. ${influencer['What strategies will you use to build relationships with influencers in your chosen niche?']} strategies we will use to build relationships with influencers in our chosen niche. By ${influencer['How will you tailor your service packages to meet the unique needs and objectives of your clients?']} we will tailor our service packages to meet the unique needs and objectives of our clients. ${influencer['What methods will you use to reach out to brands and pitch your services effectively?']} methods will use to reach out to brands and pitch our services effectively. ${influencer["How do you plan to coordinate with influencers to create engaging content that aligns with brands' objectives?"]} is my plan to coordinate with influencers to create engaging content that aligns with brands objectives. ${influencer['What metrics will you use to monitor campaign performance and track ROI for your clients?']} metrics will use to monitor campaign performance and track ROI for our clients. By ${influencer['How will you stay updated on industry trends, platform algorithms, and best practices in influencer marketing?']} we will stay updated on industry trends, platform algorithms, and best practices in influencer marketing. ${influencer['What strategies do you have in place to adapt and evolve your business as the influencer marketing landscape changes?']} strategies we have in place to adapt and evolve your business as the influencer marketing landscape changes. ${influencer['What strategies will you implement to stay ahead of emerging trends and innovations in influencer marketing?']} strategies we will implement to stay ahead of emerging trends and innovations in influencer marketing.`
-      let influencerText = await answer(influencerPrompt)
-      text['influencerText'] = influencerText
+      // let { DietaryPreferences } = domain
+      // console.log(domain.DietaryPreferences)
+      let DietaryPreferencesPrompt = `We aim to understand your dietary preferences starting with whether you follow a specific diet: ${domain.DietaryPreferences["1"]}. Your meal pattern is also important, as you typically eat ${domain.DietaryPreferences["2"]} per day. We take into account any food allergies: ${domain.DietaryPreferences["3"]} to ensure your dietary recommendations are safe and customized. Additionally, we assess how often you eat out: ${domain.DietaryPreferences["4"]}, which can impact your overall nutritional intake5f you take dietary supplements: ${domain.DietaryPreferences["5"]}, we incorporate this into your personalized dietary plan. Our goal is to provide tailored dietary advice that aligns with your preferences, lifestyle, and health objectives.`;
+      let DietaryPreferencesText = await answer(DietaryPreferencesPrompt)
+      text['DietaryPreferencesText'] = DietaryPreferencesText
       setPercent(prevPercent => prevPercent + 9);
       console.log("login " + percent)
 
 
-      let { content } = domain
-      let contentPrompt = `${content['What kinds of stuff are we making, and why do people want it?']} we are making. we are making it for ${content['Who are we making it for, and what do they like?']}. By ${content["How do we make sure our stuff is better than everyone else's?"]} we are making sure our stuff is better than everyone else's. We need ${content["What do we need to make our stuff, and who's doing what?"]} to make our stuff. we are using ${content['What tools are we using to make sure our stuff looks good?']} to make sure our stuff looks good. By ${content['How do we ensure the quality and consistency of our content?']} we ensure the quality and consistency of our content. By ${content["How do we know if our stuff is doing well, and what do we do if it's not?"]} we know if our stuff is doing well, and what do we do if it's not. We are starting ${content['When are we starting, and what do we want to achieve?']}. By ${content["How do we know if we're doing a good job, and what's the plan for the future?"]} we know if we're doing a good job. ${content['What are the success evaluation metrics over time?']} are the success evaluation metrics over time.`
-      let contentText = await answer(contentPrompt)
-      text['contentText'] = contentText
+      // let { PhysicalActivities } = domain
+      // console.log(domain.PhysicalActivities)
+      let PhysicalActivitiesPrompt = `${domain.PhysicalActivities["1"]} reflects how often you exercise as part of your routine. Engaging in ${domain.PhysicalActivities["2"]} is your preferred choice of physical activity, helping to improve overall fitness and health. Each session typically lasts ${domain.PhysicalActivities["3"]}, which determines the intensity and impact of your workouts. If you have any physical limitations: ${domain.PhysicalActivities["4"]}, we ensure that your exercise plan accommoda5 and respects those limitations for safety. Following a specific fitness routine: ${domain.PhysicalActivities["5"]} helps structure your physical activity and achieve targeted fitness goals. Our aim is to create a comprehensive and personalized fitness plan that aligns with your activity levels, preferences, and physical needs.`;
+      
+      let PhysicalActivitiesText = await answer(PhysicalActivitiesPrompt)
+      text['PhysicalActivitiesText'] = PhysicalActivitiesText
       setPercent(prevPercent => prevPercent + 9);
       console.log("login " + percent)
 
 
-      let { publicRelation } = domain
-      let publicRelationPrompt = `${publicRelation['What are the big trends in PR we can take advantage of?']} is the big trends in PR we can take advantage of. ${publicRelation['Who else is in the PR game, and how are we going to be different?']} is in the PR game, and how are we going to be different. we are doing ${publicRelation['What exactly are we doing for our clients, and why does it matter?']} for our clients, and why does it matter. we are going to focus on ${publicRelation['Are we going to focus on anything specific, and why?']}. we are trying to help ${publicRelation['Who are we trying to help, and what do they need?']} and what do they need. By ${publicRelation['How do we make sure they stick with us?']} we make sure they stick with us. By ${publicRelation['How are we getting the word out about our PR agency?']} we are getting the word out about our PR agency. We are doing ${publicRelation['What do we do to turn interested people into clients']} to turn interested people into clients. ${publicRelation['What might go wrong, and how do we fix it?']} might go wrong, and how do we fix it. ${publicRelation['What are the anticipated risks, and what are our mitigation plans?']} are the anticipated risks, and how to overcome this.`
-      let publicRelationText = await answer(publicRelationPrompt)
-      text['publicRelationText'] = publicRelationText
+      // let { SleepPatterns } = domain
+      // console.log(domain.SleepPatterns)
+      let SleepPatternsPrompt = `${domain.SleepPatterns["1"]} reflects how many hours of sleep you get on average, which plays a crucial role in your overall well-being. Having a consistent sleep schedule: ${domain.SleepPatterns["2"]} impacts the regularity of your rest cycle and contributes to better sleep quality.Experiencing sleep disturbances: ${domain.SleepPatterns["3"]} highlights potential issues that might affect your sleep. You feel ${domain.SleepPatterns["4"]} when you wake up, which provides insight int5our sleep quality and recovery. Taking sleep aids or medications: ${domain.SleepPatterns["5"]} indicates whether you rely on external assistance to achieve restful sleep. Our goal is to analyze these factors and offer personalized suggestions to improve your sleep patterns and overall health.`;
+      let SleepPatternsText = await answer(SleepPatternsPrompt)
+      text['SleepPatternsText'] = SleepPatternsText
       setPercent(prevPercent => prevPercent + 9);
       console.log("login " + percent)
 
 
-      let { branding } = domain
-      let brandingPrompt = `${branding['What tech trends can we use to our advantage?']} tech trends can we use to our advantage. By ${branding['How do we plan to adapt to changing tech needs?']} we are  planning to adapt to changing tech needs. ${branding['What cool stuff are we offering?']} cool stuff are we offering. By ${branding["How do we make sure we're different from everyone else?"]} we make sure we're different from everyone else. ${branding['Who are our main customers?']} are our main customers. By ${branding['How do we make sure our stuff fits what they want?']} we make sure our stuff fits what customers want. By ${branding['How do we ensure our branding and design solutions remain fresh and relevant over time?']} we ensure our branding and design solutions remain fresh and relevant over time. ${branding['What are the success drivers for your products or services?']} are the success drivers for our products or services. ${branding['What new things are we planning?']} new things are we planning. By ${branding["How do we make sure everyone's always thinking of cool new stuff?"]} we make sure everyone's always thinking of cool new stuff.`
-      let brandingText = await answer(brandingPrompt)
-      text['brandingText'] = brandingText
+      // let { MentalHealth } = domain
+      // console.log(domain.MentalHealth)
+      let MentalHealthPrompt = `${domain.MentalHealth["1"]} reflects how frequently stress impacts your daily life, which is a key factor in mental well-being. Having coping mechanisms for stress: ${domain.MentalHealth["2"]} highlights the importance of effective strategies to manage stress. Feeling anxious: ${domain.MentalHealth["3"]} shows how often anxiety is experienced, providing insights into potential triggers and areas for improvement. Having mental health conditions: ${domain.MentalHealth["4"]} indicates whether specific conditions may require5rgeted support. Seeking professional help for mental health: ${domain.MentalHealth["5"]} shows whether external assistance is being utilized for managing mental health. Our focus is to understand these aspects to help create a personalized approach for enhancing mental well-being and providing the necessary resources for support.`;
+      let MentalHealthText = await answer(MentalHealthPrompt)
+      text['MentalHealthText'] = MentalHealthText
       setPercent(prevPercent => prevPercent + 9);
       console.log("login " + percent)
 
@@ -233,7 +232,7 @@ function Stepper({ steps }) {
         const cookies = Cookies.get("token");
         // Send a request to your backend to generate and download the PDF
         const response = await fetch(
-          "https://idea-engine-backend-4gyo.vercel.app/api/v1/generatepdf",
+          "http://localhost:8000/api/v1/generate-pdf",
           {
             method: "POST",
             headers: {
