@@ -5,6 +5,12 @@ import DietaryPreferences from "../components/DietaryPreferences";
 import PhysicalActivities from "../components/PhysicalActivities";
 import SleepPatterns from "../components/SleepPatterns";
 import MentalHealth from "../components/MentalHealth";
+import TechnologyInnovation from "../components/Technology&Innovation";
+import DigitalMarketing from "../components/DigitalMarketing";
+import InfluencerMarketing from "../components/InfluencerMarketing";
+import ContentProduction from "../components/ContentProduction";
+import PublicRelations from "../components/PublicRelations";
+import BrandingDesign from "../components/Branding&Design";
 
 function Mobilestepper() {
   const steps = [
@@ -24,16 +30,6 @@ function Mobilestepper() {
       <MentalHealth />
     </div>,
   ];
-
-  const [activeStep, setActiveStep] = useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevStep) => prevStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevStep) => prevStep - 1);
-  };
 
   return (
     <>

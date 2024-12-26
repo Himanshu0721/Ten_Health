@@ -1,95 +1,112 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { context } from "../context";
 
-function HealthMetrics() {
-  const [selectedAnswers, setSelectedAnswers] = useState({});
+function healthMetrices() {
 
-  const questions = {
-    1: {
-      question: "What is your current weight?",
-      options: ["Under 50kg", "50-70kg", "Above 70kg"],
-    },
-    2: {
-      question: "What is your current height?",
-      options: ["Under 150cm", "150-170cm", "Above 170cm"],
-    },
-    3: {
-      question: "Do you have any known medical conditions?",
-      options: ["Yes", "No"],
-    },
-    4: {
-      question: "What is your blood pressure range?",
-      options: ["Low", "Normal", "High"],
-    },
-    5: {
-      question: "What is your BMI?",
-      options: ["Underweight", "Normal", "Overweight", "Obese"],
-    },
-    6: {
-      question: "Do you have any allergies?",
-      options: ["Yes", "No"],
-    },
-  };
+  const quest = [
+    { "1":"What is your current weight?", options: ["Under 50kg", "50-70kg", "Above 70kg"]},
+    { "2": "What is your current height?", options: ["Under 150cm", "150-170cm", "Above 170cm"]},
+    { "3": "Do you have any known medical conditions?", options: ["Yes", "No"]},
+    { "4": "What is your blood pressure range?", options: ["Low", "Normal", "High"]},
+    { "5": "What is your BMI?", options: ["Underweight", "Normal", "Overweight", "Obese"]},
+    { "6": "Do you have any allergies?", options: ["Yes", "No"]}
+  ];
 
   const ref = useRef(null);
-  const renderQuestions = () => {
-    return Object.keys(questions).map((key) => (
-      <div className="card" key={key}>
-        <div className="card-header">
-          <br></br>
-          <h5 className="card-title text-xl">Question {key}</h5>
-          <p className="card-text text-lg mb-3">{questions[key].question}</p>
-          <hr />
-        </div>
-        <div className="card-body mt-3">
-          {questions[key].options.map((option, index) => (
-            <div className="form-check mt-1" key={index}>
-              <input
-                className="form-check-input border-2 border-dark"
-                type="radio"
-                name={`q${key}`}
-                id={`q${key}a${index}`}
-                value={option}
-                onChange={(e) => handleAnswerChange(key, e.target.value)}
-                checked={selectedAnswers[key] === option}
-              />
-              <label className="form-check-label" htmlFor={`q${key}a${index}`}>
-                {option}
-              </label>
-            </div>
-          ))}
-          <hr className="mt-3" />
-        </div>
-      </div>
-    ));
-  };
-
   useEffect(() => {
     if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (!domain.healthMetrices) {
+      setDomain((prev) => ({ ...prev, healthMetrices: {} }));
     }
   }, []);
 
-  const handleAnswerChange = (questionId, answer) => {
-    setSelectedAnswers({
-      ...selectedAnswers,
-      [questionId]: answer,
+  let { domain, setDomain } = useContext(context)
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+
+  const addQuestion = (questionId, answer) => {
+    setDomain((prev) => {
+      const updatedHealthMetrices = {
+        ...prev.healthMetrices,
+        [questionId]: answer
+      };
+
+      console.log('Updated healthMetrices:', updatedHealthMetrices);
+
+      return {
+        ...prev,
+        healthMetrices: updatedHealthMetrices,
+      };
     });
+  };
+
+  useEffect(() => {
+    console.log(domain)
+  },[domain])
+
+  const handleAnswerChange = (questionId, answer) => {
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [questionId]: answer
+    }));
+    addQuestion(questionId, answer)
   };
 
   return (
     <div ref={ref} className="container-fluid">
       <div className="row">
         <div className="w-[65%]">
-          <h1 className="title text-center mb-3">Health Metrics</h1>
-          <form className="bg-[#121212] rounded-xl ml-7 py-5 px-10">
+          <h1 className="title text-center mb-3">health Metrices</h1>
+          <form className="bg-[#121212] rounded-xl ml-7 pt-5 pb-10 px-10">
             <h4 className="card-title text-center font-semibold text-[1.8rem] mb-2">STEP 1 OF 5</h4>
             <hr />
-            <div>{renderQuestions()}</div>
+            {
+            quest.map((question, index) => {
+              const [questionId, questionText] = Object.entries(question)[0];
+              return (  
+              <div key={index}>
+                <div className="card">
+                  <div className="card-header">
+                    <br></br>
+                    <h5 className="card-title text-xl">Question {index + 1}</h5>
+                    <p className="card-text text-lg mb-3">
+                      {questionText}
+                    </p>
+                    <hr />
+                  </div>
+                  <div className="card-body mt-3">
+                    {
+                      question.options.map((option, i) => (
+                      <div className="form-check mt-1" key={i}>
+                          <input
+                            className="form-check-input border-2 border-dark"
+                            type="radio"
+                            name={`q${questionId}`}
+                            id={`q${questionId}a${i}`}
+                            value={option}
+                            onChange={(e) => handleAnswerChange(questionId, e.target.value)}
+                            checked={selectedAnswers[questionId] === option}
+                          />
+                          <label className="form-check-label" htmlFor={`q${questionId}a${i}`}>
+                            {option}
+                          </label>
+                        </div>
+                      ))  
+                    }
+                  </div>
+                  <hr className="mt-3" />
+                </div>
+              </div>
+              )
+             })
+            }
           </form>
+          <br></br>
         </div>
       </div>
     </div>
   );
 }
 
-export default HealthMetrics;
+export default healthMetrices;

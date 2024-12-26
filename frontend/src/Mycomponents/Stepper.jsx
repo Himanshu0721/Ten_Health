@@ -20,22 +20,19 @@ function Stepper({ steps }) {
   }, [percent]);
 
   function validations(step) {
-    if (step === 1 && Object.keys(domain['technology']).length < 8) {
+    if (step === 1 && Object.keys(domain['healthMetrices']).length !== 6) {
       return true;
     }
-    if (step === 2 && Object.keys(domain['digital']).length < 10) {
+    if (step === 2 && Object.keys(domain['DietaryPreferences']).length !== 5) {
       return true;
     }
-    if (step === 3 && Object.keys(domain['influencer']).length < 10) {
+    if (step === 3 && Object.keys(domain['PhysicalActivities']).length !== 5) {
       return true;
     }
-    if (step === 4 && Object.keys(domain['content']).length < 10) {
+    if (step === 4 && Object.keys(domain['SleepPatterns']).length !== 5) {
       return true;
     }
-    if (step === 5 && Object.keys(domain['publicRelation']).length < 10) {
-      return true;
-    }
-    if (step === 6 && Object.keys(domain['branding']).length < 10) {
+    if (step === 5 && Object.keys(domain['MentalHealth']).length !== 5) {
       return true;
     }
   }
@@ -300,14 +297,14 @@ function Stepper({ steps }) {
           </Box>
         </div>
       ) :
-        (<div>
+        (<div className='mb-5'>
           <context.Provider value={{ questions, setQuestions, addQuestions, answers, setAnswers, addAnswers, domain, setDomain }}>
             {steps[activeStep]}
           </context.Provider>
-          <div className='d-flex justify-content-center'>
-            <Button disabled={activeStep === 0} onClick={handleBack} variant="outline-primary" className=' mx-2'>Back</Button>
-            {step !== 6 && <Button disabled={activeStep === steps.length - 1} onClick={handleNext} variant="outline-primary" className=' mx-2'>Next</Button>}
-            {step === 6 && <Button onClick={handleDownloadPdf} variant="outline-primary" className=' mx-2'>Generate Pdf</Button>}
+          <div className='flex gap-3 ml-[43%] mr-[44%]'>
+            <Button disabled={activeStep === 0} onClick={handleBack} variant="outline-primary" className='py-3 px-5 rounded-lg bg-[#121212] cursor-pointer'>Back</Button>
+            {step !== 5 && <Button disabled={activeStep === steps.length - 1} onClick={handleNext} variant="outline-primary" className='py-3 px-5 rounded-lg bg-[#121212] cursor-pointer'>Next</Button>}
+            {step === 5 && <Button onClick={handleDownloadPdf} variant="outline-primary" className='py-3 px-5 rounded-lg bg-[#121212] cursor-pointer min-w-max'>Generate Pdf</Button>}
           </div>
         </div>
         )}
