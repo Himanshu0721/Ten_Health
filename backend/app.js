@@ -11,6 +11,8 @@ import cors from "cors";
 import userRoutes from "./routes/userRoute.js";
 import googleAuthRoutes from "./routes/googleAuthRoute.cjs";
 import initializeGoogleAuth from "./googleAuth.js";
+import healthRoutes from "./routes/healthRoutes.js";
+import path from "path";
 
 dotenv.config();
 
@@ -45,6 +47,9 @@ app.use(passport.session());
 // Routes
 app.use("/api/v1", userRoutes);
 app.use("/auth", googleAuthRoutes);
+app.use("/api/health", healthRoutes);
+
+app.use("/reports", express.static(path.join(path.resolve(), "reports")));
 
 // Middleware for Errors
 app.use(errorMiddleware);
