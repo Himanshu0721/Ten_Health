@@ -4,12 +4,14 @@ import "./Offering.css";
 const Offering = () => {
   return (
     <section className="offerings-section" style={{ color: "white" }}>
-      <h2 className="offerings-heading">Accelerate Your Health Journey</h2>
+      <p className="text-center font-bold text-5xl w-auto md:text-7xl mt-10">
+        Accelerate Your Health Journey
+      </p>
       <p className="offerings-description">
         Unlock personalized health insights, expert recommendations, and
         resources tailored to your needs.
       </p>
-      <div className="offerings-card-container">
+      <div className="offerings-card-container w-auto">
         <div className="offerings-card">
           <img
             src="img1-removebg-preview.png"

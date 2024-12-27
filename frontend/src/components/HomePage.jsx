@@ -45,7 +45,7 @@ export default function HomePage() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar bg-[#023f8b]">
         <div className="navbar-brand flex">
           <svg
             width="46"
@@ -97,12 +97,12 @@ export default function HomePage() {
           <Link to="/login">Login</Link>
         </div>
       </nav>
-      <div className="bg-overlay">
+      <div className="bg-overlay bg-[#023f8b]">
         <div className="spze mt-4"></div>
-        <h1>
-          Empowering your health journey <br /> with precision & expertise
-        </h1>
-        <p className="blue-home">
+        <p className="font-bold text-5xl w-auto md:text-7xl">
+          Empowering your health journey with precision & expertise
+        </p>
+        <p className="blue-home mt-8">
           Health Engine delivers personalized healthcare insights and
           recommendations to help you make informed decisions.
         </p>
