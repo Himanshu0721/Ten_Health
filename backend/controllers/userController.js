@@ -107,75 +107,72 @@ export const generatePdf = catchAsyncErrors(async (req, res, next) => {
 
     doc
       .fontSize(18)
-      .text("Explaining the Executive summary statement")
+      .text("Explaining the Executive Summary of my health plan.")
       .moveDown();
     doc.fontSize(12).text(text.executiveText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Market Analysis")
+      .text("Explaining the detail about the Health Analysis and Current Status.")
       .moveDown();
-    doc.fontSize(12).text(text.marketText).moveDown();
+    doc.fontSize(12).text(text.healthAnalysisText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Product Description")
+      .text("Explaining the detail about the Health Goals and Objectives.")
       .moveDown();
-    doc.fontSize(12).text(text.productText).moveDown();
+    doc.fontSize(12).text(text.healthGoalText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Business Model")
+      .text("Explaining the detail about the Health Improvement Strategies.")
       .moveDown();
-    doc.fontSize(12).text(text.buisnessText).moveDown();
+    doc.fontSize(12).text(text.healthStrategyText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Financial Plan")
+      .text("Explaining the detail about the Financial Plan for health-related expenses.")
       .moveDown();
-    doc.fontSize(12).text(text.financialText).moveDown();
+    doc.fontSize(12).text(text.financialPlanText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Marketing and Sales Strategy")
+      .text("Explaining the detail about the Recommended Lifestyle Changes.")
       .moveDown();
-    doc.fontSize(12).text(text.marketingText).moveDown();
+    doc.fontSize(12).text(text.lifestyleChangesText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Guidance Plan")
+      .text("Explaining the detail about Progress Tracking and Monitoring Plan.")
       .moveDown();
-    doc.fontSize(12).text(text.guidanceText).moveDown();
+    doc.fontSize(12).text(text.progressTrackingText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Mission Statement")
+      .text("Explaining the detail about the Mission Statement for my health journey.")
       .moveDown();
-    doc.fontSize(12).text(text.missionText).moveDown();
+    doc.fontSize(12).text(text.healthMissionText).moveDown();
 
     doc
       .fontSize(18)
-      .text("Explaining the detail about the Vision Statement")
+      .text("Explaining the detail about the Vision Statement for my health and wellness.")
       .moveDown();
-    doc.fontSize(12).text(text.visionText).moveDown();
+    doc.fontSize(12).text(text.healthVisionText).moveDown();
 
-    doc.fontSize(18).text("Analysis on Technology & Innovation").moveDown();
-    doc.fontSize(12).text(text.technologyText).moveDown();
+    doc.fontSize(18).text("Analysis on Health Matrices").moveDown();
+    doc.fontSize(12).text(text.healthMatricesText).moveDown();
 
-    doc.fontSize(18).text("Analysis on Digital Marketing").moveDown();
-    doc.fontSize(12).text(text.digitalText).moveDown();
+    doc.fontSize(18).text("Analysis on Dietary Preferences").moveDown();
+    doc.fontSize(12).text(text.DietaryPreferencesText).moveDown();
 
-    doc.fontSize(18).text("Analysis on Influencer Marketing").moveDown();
-    doc.fontSize(12).text(text.influencerText).moveDown();
+    doc.fontSize(18).text("Analysis on Physical Activities").moveDown();
+    doc.fontSize(12).text(text.PhysicalActivitiesText).moveDown();
 
-    doc.fontSize(18).text("Analysis on Content Production").moveDown();
-    doc.fontSize(12).text(text.contentText).moveDown();
+    doc.fontSize(18).text("Analysis on Sleep Patterns").moveDown();
+    doc.fontSize(12).text(text.SleepPatternsText).moveDown();
 
-    doc.fontSize(18).text("Analysis on Public Relation").moveDown();
-    doc.fontSize(12).text(text.publicRelationText).moveDown();
-
-    doc.fontSize(18).text("Analysis on Branding & Designing").moveDown();
-    doc.fontSize(12).text(text.brandingText).moveDown();
+    doc.fontSize(18).text("Analysis on Mental Health").moveDown();
+    doc.fontSize(12).text(text.MentalHealthText).moveDown();
 
     doc.fontSize(12).text(text).moveDown();
 

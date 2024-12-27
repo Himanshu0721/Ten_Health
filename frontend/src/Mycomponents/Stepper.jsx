@@ -130,14 +130,13 @@ function Stepper({ steps }) {
   //     console.log("loader " + percent)
   //     return newCount >= 100 ? 100 : newCount;
   //   });
-  // }, [percent]);
+  // }, [percent])
+
 
   const handleDownloadPdf = async () => {
     try {
       setLoader(true);
-
       setPercent((prevPercent) => prevPercent + 5);
-
       let text = {};
       const questions = messages.questions
       const answers = messages.answers
@@ -180,8 +179,8 @@ function Stepper({ steps }) {
       setPercent(prevPercent => prevPercent + 2);
 
       // let { healthMatrices } = domain
-      // console.log(domain[healthMatrices])
-      let healthMatricesPrompt = `Our health matrix system starts by identifying your current weight: ${domain.healthMatrices[1]}. Next, we assess your height: ${domain.healthMatrices[2]} to calculate BMI and understand your physical proportions. we also check for known medical conditions: ${domain.healthMatrices[3]}, and monitor your blood pressure range: ${domain.healthMatrices[4]}. Your BMI status is tracked as: ${domain.healthMatrices[5]}. Additionally, we take note of allergies: ${domain.healthMatrices[6]} to ensure a comprehensive health overview. Our goal is to provide personalized health recommendations and improvements based on these metrics.`;
+      const [healthMatrices] = Object.entries(domain)
+      let healthMatricesPrompt = `Our health matrix system starts by identifying your current weight: ${healthMatrices[1][1]}. Next, we assess your height: ${healthMatrices[1][2]} to calculate BMI and understand your physical proportions. we also check for known medical conditions: ${healthMatrices[1][3]}, and monitor your blood pressure range: ${healthMatrices[1][4]}. Your BMI status is tracked as: ${healthMatrices[1][5]}. Additionally, we take note of allergies: ${healthMatrices[1][6]} to ensure a comprehensive health overview. Our goal is to provide personalized health recommendations and improvements based on these metrics.`;
 
       let healthMatricesText = await answer(healthMatricesPrompt)
       text['healthMatricesText'] = healthMatricesText
@@ -190,7 +189,8 @@ function Stepper({ steps }) {
 
       // let { DietaryPreferences } = domain
       // console.log(domain.DietaryPreferences)
-      let DietaryPreferencesPrompt = `We aim to understand your dietary preferences starting with whether you follow a specific diet: ${domain.DietaryPreferences["1"]}. Your meal pattern is also important, as you typically eat ${domain.DietaryPreferences["2"]} per day. We take into account any food allergies: ${domain.DietaryPreferences["3"]} to ensure your dietary recommendations are safe and customized. Additionally, we assess how often you eat out: ${domain.DietaryPreferences["4"]}, which can impact your overall nutritional intake5f you take dietary supplements: ${domain.DietaryPreferences["5"]}, we incorporate this into your personalized dietary plan. Our goal is to provide tailored dietary advice that aligns with your preferences, lifestyle, and health objectives.`;
+      const [DietaryPreferences] = Object.entries(domain)
+      let DietaryPreferencesPrompt = `We aim to understand your dietary preferences starting with whether you follow a specific diet: ${DietaryPreferences[1][1]}. Your meal pattern is also important, as you typically eat ${DietaryPreferences[1][2]} per day. We take into account any food allergies: ${DietaryPreferences[1][3]} to ensure your dietary recommendations are safe and customized. Additionally, we assess how often you eat out: ${DietaryPreferences[1][4]}, which can impact your overall nutritional intake5f you take dietary supplements: ${DietaryPreferences[1][5]}, we incorporate this into your personalized dietary plan. Our goal is to provide tailored dietary advice that aligns with your preferences, lifestyle, and health objectives.`;
       let DietaryPreferencesText = await answer(DietaryPreferencesPrompt)
       text['DietaryPreferencesText'] = DietaryPreferencesText
       setPercent(prevPercent => prevPercent + 9);
@@ -199,7 +199,8 @@ function Stepper({ steps }) {
 
       // let { PhysicalActivities } = domain
       // console.log(domain.PhysicalActivities)
-      let PhysicalActivitiesPrompt = `${domain.PhysicalActivities["1"]} reflects how often you exercise as part of your routine. Engaging in ${domain.PhysicalActivities["2"]} is your preferred choice of physical activity, helping to improve overall fitness and health. Each session typically lasts ${domain.PhysicalActivities["3"]}, which determines the intensity and impact of your workouts. If you have any physical limitations: ${domain.PhysicalActivities["4"]}, we ensure that your exercise plan accommoda5 and respects those limitations for safety. Following a specific fitness routine: ${domain.PhysicalActivities["5"]} helps structure your physical activity and achieve targeted fitness goals. Our aim is to create a comprehensive and personalized fitness plan that aligns with your activity levels, preferences, and physical needs.`;
+      const [PhysicalActivities] = Object.entries(domain)
+      let PhysicalActivitiesPrompt = `${PhysicalActivities[1][1]} reflects how often you exercise as part of your routine. Engaging in ${PhysicalActivities[1][2]} is your preferred choice of physical activity, helping to improve overall fitness and health. Each session typically lasts ${PhysicalActivities[1][3]}, which determines the intensity and impact of your workouts. If you have any physical limitations: ${PhysicalActivities[1][4]}, we ensure that your exercise plan accommoda5 and respects those limitations for safety. Following a specific fitness routine: ${PhysicalActivities[1][5]} helps structure your physical activity and achieve targeted fitness goals. Our aim is to create a comprehensive and personalized fitness plan that aligns with your activity levels, preferences, and physical needs.`;
       
       let PhysicalActivitiesText = await answer(PhysicalActivitiesPrompt)
       text['PhysicalActivitiesText'] = PhysicalActivitiesText
@@ -209,7 +210,8 @@ function Stepper({ steps }) {
 
       // let { SleepPatterns } = domain
       // console.log(domain.SleepPatterns)
-      let SleepPatternsPrompt = `${domain.SleepPatterns["1"]} reflects how many hours of sleep you get on average, which plays a crucial role in your overall well-being. Having a consistent sleep schedule: ${domain.SleepPatterns["2"]} impacts the regularity of your rest cycle and contributes to better sleep quality.Experiencing sleep disturbances: ${domain.SleepPatterns["3"]} highlights potential issues that might affect your sleep. You feel ${domain.SleepPatterns["4"]} when you wake up, which provides insight int5our sleep quality and recovery. Taking sleep aids or medications: ${domain.SleepPatterns["5"]} indicates whether you rely on external assistance to achieve restful sleep. Our goal is to analyze these factors and offer personalized suggestions to improve your sleep patterns and overall health.`;
+      const [SleepPatterns] = Object.entries(domain)
+      let SleepPatternsPrompt = `${SleepPatterns[1][1]} reflects how many hours of sleep you get on average, which plays a crucial role in your overall well-being. Having a consistent sleep schedule: ${SleepPatterns[1][2]} impacts the regularity of your rest cycle and contributes to better sleep quality.Experiencing sleep disturbances: ${SleepPatterns[1][3]} highlights potential issues that might affect your sleep. You feel ${SleepPatterns[1][4]} when you wake up, which provides insight int5our sleep quality and recovery. Taking sleep aids or medications: ${SleepPatterns[1][5]} indicates whether you rely on external assistance to achieve restful sleep. Our goal is to analyze these factors and offer personalized suggestions to improve your sleep patterns and overall health.`;
       let SleepPatternsText = await answer(SleepPatternsPrompt)
       text['SleepPatternsText'] = SleepPatternsText
       setPercent(prevPercent => prevPercent + 9);
@@ -218,7 +220,8 @@ function Stepper({ steps }) {
 
       // let { MentalHealth } = domain
       // console.log(domain.MentalHealth)
-      let MentalHealthPrompt = `${domain.MentalHealth["1"]} reflects how frequently stress impacts your daily life, which is a key factor in mental well-being. Having coping mechanisms for stress: ${domain.MentalHealth["2"]} highlights the importance of effective strategies to manage stress. Feeling anxious: ${domain.MentalHealth["3"]} shows how often anxiety is experienced, providing insights into potential triggers and areas for improvement. Having mental health conditions: ${domain.MentalHealth["4"]} indicates whether specific conditions may require5rgeted support. Seeking professional help for mental health: ${domain.MentalHealth["5"]} shows whether external assistance is being utilized for managing mental health. Our focus is to understand these aspects to help create a personalized approach for enhancing mental well-being and providing the necessary resources for support.`;
+      const [MentalHealth] = Object.entries(domain)      
+      let MentalHealthPrompt = `${MentalHealth[1][1]} reflects how frequently stress impacts your daily life, which is a key factor in mental well-being. Having coping mechanisms for stress: ${MentalHealth[1][2]} highlights the importance of effective strategies to manage stress. Feeling anxious: ${MentalHealth[1][3]} shows how often anxiety is experienced, providing insights into potential triggers and areas for improvement. Having mental health conditions: ${MentalHealth[1][4]} indicates whether specific conditions may require5rgeted support. Seeking professional help for mental health: ${MentalHealth[1][5]} shows whether external assistance is being utilized for managing mental health. Our focus is to understand these aspects to help create a personalized approach for enhancing mental well-being and providing the necessary resources for support.`;
       let MentalHealthText = await answer(MentalHealthPrompt)
       text['MentalHealthText'] = MentalHealthText
       setPercent(prevPercent => prevPercent + 9);
@@ -232,7 +235,7 @@ function Stepper({ steps }) {
         const cookies = Cookies.get("token");
         // Send a request to your backend to generate and download the PDF
         const response = await fetch(
-          "http://localhost:8000/api/v1/generate-pdf",
+          "http://localhost:8000/api/v1/generatepdf",
           {
             method: "POST",
             headers: {
