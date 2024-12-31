@@ -4,6 +4,7 @@ import "./Login.css";
 import Cookies from "js-cookie";
 import { Box, CircularProgress } from "@mui/material";
 import axios from "axios";
+
 const DivlayoutAuthPage = () => {
   const [login, setLogin] = useState(false);
   const [percent, setPercent] = useState(10);
@@ -13,15 +14,6 @@ const DivlayoutAuthPage = () => {
     console.log("question " + percent);
   }, [percent]);
 
-  // function validate() {
-  //   const mail = document.getElementById("email").value;
-  //   const regExp = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/;
-  //   regExp.test(mail) ? alert("You have entered a valid email") : alert("You have entered wrong email");
-  // }
-
-  //Connection Login Page to backend
-
-  // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -41,15 +33,8 @@ const DivlayoutAuthPage = () => {
 
     if (res.status === 400 || res.status === 401 || !data) {
       setLogin(false);
-      window.alert("Invalid Credientials");
-      // console.log("Invalid");
+      window.alert("Invalid Credentials");
     } else {
-      // dispatch({type: "USER", payload: true});
-
-      // window.alert("Login Successfull");
-      // const time = new Date(data.options.expires).toUTCString()
-      // const expirationDate = new Date();
-      // expirationDate.setDate(expirationDate.getDate() + 5);
       setPercent((prevPercent) => prevPercent + 20);
 
       Cookies.set("token", data.token, {
@@ -80,18 +65,7 @@ const DivlayoutAuthPage = () => {
   return (
     <>
       {login ? (
-        <div
-          style={{
-            backgroundColor: "#000000",
-            height: "100vh",
-            width: "100vw",
-            zIndex: "20",
-            position: "fixed",
-            top: "0",
-            left: "0",
-            right: "0",
-          }}
-        >
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black z-20">
           <Box
             position={"relative"}
             justifyContent={"center"}
@@ -115,24 +89,24 @@ const DivlayoutAuthPage = () => {
           </Box>
         </div>
       ) : (
-        <div className="login-page">
-          <div className="divlayout-auth-mypage mx-auto">
-            <div className="svg">
-              <img className="vector-icon" alt="" src="/vector.svg" />
+        <div className="login-page bg-gradient-to-br from-gray-800 via-gray-900 to-black min-h-screen">
+          <div className="divlayout-auth-mypage mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+            <div className="svg text-center">
+              <img className="vector-icon mx-auto" alt="" src="/vector.svg" />
             </div>
             <div className="divpage-fg">
-              <div className="section">
+              <div className="section text-center">
                 <div className="heading-1">
-                  <div className="welcome-to-dayzero-login">
-                    Welcome To TEN-HealthEngine!
+                  <div className="welcome-to-dayzero-login font-mono text-white text-2xl md:text-3xl">
+                    Welcome To Healthengine!
                   </div>
                 </div>
-                <div className="ppage-tagmargin">
+                <div className="ppage-tagmargin text-white text-sm mt-2">
                   <div className="blueprint-to-brilliance">
                     BLUEPRINT TO BRILLIANCE
                   </div>
                 </div>
-                <div className="heading-2margin">
+                <div className="heading-2margin text-white text-sm mt-2">
                   <div className="heading-2">
                     <div className="a-blueprint-engine-container">
                       <span className="a-blueprint-engine">{`A blueprint engine that converts your ideas into execution focused plan of action within `}</span>
@@ -143,18 +117,16 @@ const DivlayoutAuthPage = () => {
                 </div>
               </div>
               <div>
-                <div className="section1">
+                <div className="section1 bg-gradient-to-br from-gray-700 via-gray-800 to-900 py-8">
                   <div className="pform-title">
-                    <div style={{ fontSize: "2.5rem" }}>Welcome Back</div>
+                    <div className="text-white text-3xl">Welcome Back</div>
                   </div>
-                  <div className="pform-subtitle">
-                    <div className="fill-your-details">
-                      Fill your details to get started
-                    </div>
+                  <div className="pform-subtitle text-white mt-2 text-sm">
+                    Fill your details to get started
                   </div>
-                  <div className="form">
+                  <div className="form mt-4 space-y-4">
                     <input
-                      className="input"
+                      className="input w-full p-3 bg-gray-800 text-white rounded-md border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       type="email"
                       name="email"
                       id="email"
@@ -165,7 +137,7 @@ const DivlayoutAuthPage = () => {
                     ></input>
 
                     <input
-                      className="input"
+                      className="input w-full p-3 bg-gray-800 text-white rounded-md border-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       type="password"
                       name="password"
                       id="password"
@@ -176,20 +148,22 @@ const DivlayoutAuthPage = () => {
                     ></input>
 
                     <button
-                      className="button2"
+                      className="button2 w-full bg-slate-400 hover:bg-slate-500 py-3 rounded-md"
                       type="submit"
                       name="signin"
                       id="signin"
                       value="Log In"
                       onClick={loginUser}
                     >
-                      <div className="create-an-account">Let's Login</div>
+                      <div className="create-an-account text-white">Login</div>
                     </button>
-                    <div className="pswitch-link">
-                      <div className="do-you-already-container">
+                    <div className="pswitch-link text-center mt-4">
+                      <div className="do-you-already-container text-white">
                         <span>{`Don't have an account? `}</span>
                         <Link to="/signUp">
-                          <span className="login">Register</span>
+                          <span className="login text-blue-500 hover:underline">
+                            Register
+                          </span>
                         </Link>
                       </div>
                     </div>

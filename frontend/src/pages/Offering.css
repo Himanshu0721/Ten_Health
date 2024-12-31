@@ -1,71 +1,48 @@
-/* offerings-section  */
 .offerings-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 40px;
-  background: url(https://beta.dayzero.vercel.app/_next/static/media/offerings-bg.6a211e60.png);
-  background-repeat: no-repeat;
-  background-size: 125%;
-  margin: auto 0;
-  padding-bottom: 5rem;
-  gap: 32px;
-  background: linear-gradient(170deg, #023e8a, #0077b6);
+  background: linear-gradient(
+    135deg,
+    #1a202c,
+    #2d3748
+  ); /* Gradient with modern, dark tones */
+  padding: 20px;
 }
 
-@media (max-width: 768px) {
+.offerings-description {
+  margin: 10px auto;
+  max-width: 800px;
+}
+
+.offerings-card-container {
+  display: grid;
+  gap: 20px;
+}
+
+.offerings-card {
+  padding: 15px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.offerings-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.offerings-card:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 640px) {
   .offerings-card-container {
-    grid-template-columns: 0;
-    padding: 40px;
-    gap: 40px;
-    box-shadow: 0 0 24px 0 rgba(181, 199, 220, 0.4);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.offerings-section .offerings-heading {
-  text-align: center;
-  font-size: 76px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -5px;
-  margin-top: 2rem;
-}
-
-h2 {
-  margin: 0;
-}
-
-.offerings-section .offerings-description {
-  font-size: 18px;
-  font-weight: 300;
-  text-align: center;
-  color: #999;
-  letter-spacing: 1px;
-}
-
-p {
-  margin: 0;
-}
-
-.offerings-section .offerings-card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 24px;
-  /* background-color: #121212; */
-  background-color: #012c64;
-  border: 1px solid #393939;
-  padding: 80px 40px;
-  border-radius: 16px;
-  gap: 40px 34px;
-  box-shadow: 0 0 32px 0 rgba(181, 199, 220, 0.4);
-}
-
-.offerings-section .offerings-card-container .offerings-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  max-width: auto;
+@media (min-width: 1024px) {
+  .offerings-card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

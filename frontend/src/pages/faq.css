@@ -1,9 +1,9 @@
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .first-faq {
-  background: linear-gradient(165deg,#023e8a,#0077b6);
+  background: linear-gradient(165deg, #1a202c, #2d3748);
   padding-top: 20px;
 }
 
@@ -19,7 +19,7 @@ body {
   align-items: center;
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width: 420px) {
   .div-top {
     width: auto;
   }
@@ -44,12 +44,13 @@ body {
   display: flex;
   padding-left: 30px;
   padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 24px;
   align-items: center;
   margin: 20px;
-  height: 70px;
   /* width: 90%; */
-  background: #012c64;
+  background-color: #1a202c;
   /* background-color: white; */
   border-radius: 8px;
   justify-content: space-between;
@@ -74,7 +75,7 @@ body {
 }
 
 .faq-item p {
-  background-color: #023e8a;
+  background-color: #2d3748;
   color: rgb(243, 241, 241);
   padding: 20px 15px;
   font-size: 16px;
@@ -90,7 +91,7 @@ body {
   align-items: center;
   justify-items: center;
   /* background-color: #fff; */
-  background: linear-gradient(4deg,#023e8a,#0077b6);  
+  background: linear-gradient(165deg, #1a202c, #2d3748);
   color: white;
   padding: 0 10px;
   padding-top: 80px;
@@ -122,21 +123,12 @@ a {
   margin-top: 50px;
   font-weight: 500;
   font-size: 18px;
-  background-color: #023578;
   color: white;
   border-radius: 10px;
   padding: 15px 42px;
   border: 0.5px solid #b5c7dc;
   box-shadow: 0 0 20px 0 rgba(181, 199, 220, 0.4);
 }
-
-.login-btn:hover {
-  background-color: #022451;
-}
-
-
-
-
 
 /* .buttom {
   gap: 40px;

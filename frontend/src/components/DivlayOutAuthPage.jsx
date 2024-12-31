@@ -54,7 +54,7 @@ const DivlayoutAuthPage = () => {
   };
 
   return (
-    <div className="register-page mt-12">
+    <div className="register-page pt-12 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
       <div className="divlayout-auth-page-signup">
         <div className="svg">
           <img className="vector-icon" alt="" src="/vector.svg" />
@@ -76,7 +76,10 @@ const DivlayoutAuthPage = () => {
               </div>
             </div>
           </div>
-          <div className="section1" style={{ padding: "1.2rem 4rem" }}>
+          <div
+            className="section1 bg-gradient-to-br from-gray-800 via-gray-900 to-black "
+            style={{ padding: "1.2rem 4rem" }}
+          >
             <div className="pform-title">
               <div
                 className="create-your-account-signup"
@@ -126,7 +129,7 @@ const DivlayoutAuthPage = () => {
               ></input>
 
               <button
-                className="button2"
+                className="button2 bg-slate-400 hover:bg-slate-500 text-black"
                 type="submit"
                 name="signup"
                 id="signup"

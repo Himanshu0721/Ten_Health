@@ -45,7 +45,7 @@ function Faq() {
         </div>
       </div>
 
-      <div className="about-section mt-5">
+      <div className="about-section">
         <h1 className="about-title">Let's Transform Your Health Journey...</h1>
         <p className="about-description text-white">
           Unlock the power of personalized health insights with our innovative
@@ -54,7 +54,9 @@ function Faq() {
         </p>
         <a href="/">
           <Link to="/login">
-            <button className="login-btn">Get Started</button>
+            <button className="login-btn bg-gray-700 hover:bg-gray-600">
+              Get Started
+            </button>
           </Link>
         </a>
       </div>
