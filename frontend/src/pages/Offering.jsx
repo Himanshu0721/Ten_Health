@@ -16,7 +16,7 @@ const Offering = () => {
           <img
             src="img1-removebg-preview.png"
             alt="Build Roadmaps to Health Success"
-            className="w-32 h-32"
+            className="min-w-24"
           />
           <p className="mt-4">Build Roadmaps to Health Success</p>
         </div>
@@ -24,7 +24,7 @@ const Offering = () => {
           <img
             src="img2-removebg-preview.png"
             alt="Get Personalized Health Insights"
-            className="w-32 h-32"
+            className="min-w-32"
           />
           <p className="mt-4">Get Personalized Health Insights</p>
         </div>
@@ -32,7 +32,7 @@ const Offering = () => {
           <img
             src="img3-removebg-preview.png"
             alt="Achieve Health Clarity"
-            className="w-32 h-32"
+            className="min-w-24"
           />
           <p className="mt-4">Achieve Health Clarity</p>
         </div>
@@ -40,7 +40,7 @@ const Offering = () => {
           <img
             src="img4-removebg-preview.png"
             alt="Expert Guidance for Health"
-            className="w-32 h-32"
+            className="min-w-24"
           />
           <p className="mt-4">Get Guided by Health Experts</p>
         </div>
@@ -48,7 +48,7 @@ const Offering = () => {
           <img
             src="img5-removebg-preview.png"
             alt="Expand Your Health Vision"
-            className="w-32 h-32"
+            className="min-w-24"
           />
           <p className="mt-4">Expand Your Health Vision</p>
         </div>
@@ -56,7 +56,7 @@ const Offering = () => {
           <img
             src="img6-removebg-preview.png"
             alt="Health Success Checklist"
-            className="w-32 h-32"
+            className="min-w-24"
           />
           <p className="mt-4">Health Success Checklist</p>
         </div>

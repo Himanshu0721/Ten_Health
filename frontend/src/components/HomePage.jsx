@@ -42,7 +42,7 @@ export default function HomePage() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-gray-900 text-white"> 
       <nav className="bg-gradient-to-r from-gray-800 to-gray-900">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="navbar-brand flex items-center space-x-2">

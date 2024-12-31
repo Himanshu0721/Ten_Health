@@ -54,7 +54,7 @@ const DivlayoutAuthPage = () => {
   };
 
   return (
-    <div className="register-page pt-12 bg-gradient-to-br from-gray-800 via-gray-900 to-black">
+    <div className="register-page pt-12 bg-gradient-to-br from-gray-800 via-gray-900 to-black lg:h-[125vh] md:h-screen h-[115vh]">
       <div className="divlayout-auth-page-signup">
         <div className="svg">
           <img className="vector-icon" alt="" src="/vector.svg" />
@@ -82,8 +82,7 @@ const DivlayoutAuthPage = () => {
           >
             <div className="pform-title">
               <div
-                className="create-your-account-signup"
-                style={{ fontSize: "2.5rem" }}
+                className="create-your-account-signup lg:text-[2.5rem] md:text-[2.5rem] text-[1.5rem]"
               >
                 Create your account
               </div>
@@ -139,10 +138,10 @@ const DivlayoutAuthPage = () => {
                 <div className="create-an-account">Create an account</div>
               </button>
               <div className="pswitch-link">
-                <div className="do-you-already-container-signup">
+                <div className="do-you-already-container-signup lg:text-[1rem] md:text-[.9rem] text-[.8rem]">
                   <span>{`Do you already have an account? `}</span>
                   <Link to="/login">
-                    <span className="login">Login</span>
+                    <span className="login lg:text-[.9rem] md:text-[.9rem] text-[.8rem]">Login</span>
                   </Link>
                 </div>
               </div>

@@ -89,7 +89,7 @@ const DivlayoutAuthPage = () => {
           </Box>
         </div>
       ) : (
-        <div className="login-page bg-gradient-to-br from-gray-800 via-gray-900 to-black min-h-screen">
+        <div className="login-page bg-gradient-to-br from-gray-800 via-gray-900 to-black lg:h-[125vh] md:h-screen h-[108vh]">
           <div className="divlayout-auth-mypage mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
             <div className="svg text-center">
               <img className="vector-icon mx-auto" alt="" src="/vector.svg" />
