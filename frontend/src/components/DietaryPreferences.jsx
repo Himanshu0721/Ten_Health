@@ -60,9 +60,9 @@ function DietaryPreferences() {
   return (
     <div ref={ref} className="container-fluid flex justify-center align-center">
       <div className="row w-100 justify-center">
-        <h1 className="title text-center mb-3">Dietary Preferences</h1>
+        <h1 className="title text-center mb-3 lg:text-4xl md:text-4xl text-3xl">Dietary Preferences</h1>
         <div className="  ">
-          <form className="bg-[#121212] rounded-xl ml-7 pt-5 pb-10 px-10">
+          <form className="bg-[#121212] rounded-xl pt-5 pb-10 px-10">
             <h4 className="card-title text-center font-semibold text-[1.8rem] mb-2">
               STEP 2 OF 5
             </h4>

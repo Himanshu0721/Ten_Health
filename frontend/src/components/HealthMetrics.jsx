@@ -68,8 +68,8 @@ function healthMetrices() {
     <div ref={ref} className="container-fluid flex justify-center align-center">
       <div className="row w-100">
         <div className="flex flex-col align-middle justify-center">
-          <h1 className="title text-center mb-3">Health Metrices</h1>
-          <form className="bg-[#121212] rounded-xl ml-7 pt-5 pb-10 px-10">
+          <h1 className="title text-center my-2 mb-3 lg:text-4xl md:text-4xl text-3xl">Health Metrices</h1>
+          <form className="bg-[#121212] rounded-xl pt-5 pb-10 px-10">
             <h4 className="card-title text-center font-semibold text-[1.8rem] mb-2">
               STEP 1 OF 5
             </h4>

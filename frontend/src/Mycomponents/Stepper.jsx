@@ -303,7 +303,7 @@ function Stepper({ steps }) {
           <context.Provider value={{ questions, setQuestions, addQuestions, answers, setAnswers, addAnswers, domain, setDomain }}>
             {steps[activeStep]}
           </context.Provider>
-          <div className='flex gap-3 ml-[43%] mr-[44%]'>
+          <div className='flex gap-3 lg:ml-[43%] lg:mr-[44%] md:ml-[40%] ml-[30%]'>
             <Button disabled={activeStep === 0} onClick={handleBack} variant="outline-primary" className='py-3 px-5 rounded-lg bg-[#121212] cursor-pointer'>Back</Button>
             {step !== 5 && <Button disabled={activeStep === steps.length - 1} onClick={handleNext} variant="outline-primary" className='py-3 px-5 rounded-lg bg-[#121212] cursor-pointer'>Next</Button>}
             {step === 5 && <Button onClick={handleDownloadPdf} variant="outline-primary" className='py-3 px-5 rounded-lg bg-[#121212] cursor-pointer min-w-max'>Generate Pdf</Button>}

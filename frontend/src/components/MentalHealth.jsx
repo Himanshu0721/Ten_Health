@@ -66,9 +66,9 @@ function MentalHealth() {
   return (
     <div ref={ref} className="container-fluid flex justify-center align-center">
       <div className="row justify-center">
-        <h1 className="title text-center mb-3">Mental Health</h1>
+        <h1 className="title text-center mb-3 lg:text-4xl md:text-4xl text-3xl">Mental Health</h1>
         <div className="flex flex-col align-middle justify-center">
-          <form className="bg-[#121212] rounded-xl ml-7 pt-5 pb-10 px-10">
+          <form className="bg-[#121212] rounded-xl pt-5 pb-10 px-10">
             <h4 className="card-title text-center font-semibold text-[1.8rem] mb-2">
               STEP 5 OF 5
             </h4>
