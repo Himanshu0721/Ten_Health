@@ -5,6 +5,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Loader from "../components/Loader";
+import "./Welcome.css";
 
 function Welcome_page() {
   let navigate = useNavigate();
