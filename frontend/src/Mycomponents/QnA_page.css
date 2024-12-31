@@ -79,9 +79,9 @@
   white-space: pre-line;
   /* justify-content: center; */
 }
-.res {
+/* .res {
   margin-left: 140px;
-}
+} */
 
 .qna-box {
   width: 100%;
@@ -105,12 +105,9 @@
   background: #121212;
   border-radius: 6px;
   border: 1px solid #393939;
-
-  padding: 24px;
   text-align: center;
 }
 .qna-text {
-  font-size: 16px;
   font-weight: 400;
   text-align: center;
   color: #ccc;
@@ -388,3 +385,4 @@ input:focus {
     margin: 10px;
     color:#ccc
 } */
+
