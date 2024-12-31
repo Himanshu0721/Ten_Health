@@ -76,7 +76,6 @@
   position: relative;
   gap: 1rem;
   color: lightgray;
-  margin-top: 1.2rem;
   white-space: pre-line;
   /* justify-content: center; */
 }
@@ -85,7 +84,6 @@
 }
 
 .qna-box {
-  background-color: #121212;
   width: 100%;
   /* display: flex; */
   position: relative;
@@ -93,7 +91,7 @@
   color: #ddd;
   padding: 40px 120px;
   /* white-space: pre-line; */
-  margin: 1rem;
+  /* margin: 1rem; */
   text-align: center;
   display: flex;
   align-items: center;
@@ -254,10 +252,9 @@
 }
 
 .container-1 {
-  margin-top: 4.8rem;
+  margin-top: 1.8rem;
   height: 100vh auto;
 }
-
 
 .row {
   justify-content: center;
@@ -282,7 +279,7 @@
   display: flex;
   color: #fff;
   width: 100vw;
-  background-color: rgba(0, 0, 0, .188);
+  background-color: rgba(0, 0, 0, 0.188);
   height: 80px;
   top: 0px;
   position: fixed;

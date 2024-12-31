@@ -872,12 +872,6 @@ function QnA_page() {
         </div>
       ) : (
         <>
-          <div className="blue">
-            <nav className="logo1 bg:opacity-100 z-10">
-              <img src="./images/logo.png" alt=""></img>
-              <p className="font-mono">Healthengine</p>
-            </nav>
-          </div>
           <div className="container-1">
             <div className="row">
               <div className="fixing">

@@ -65,10 +65,10 @@ function healthMetrices() {
   };
 
   return (
-    <div ref={ref} className="container-fluid">
-      <div className="row">
-        <div className="w-[65%]">
-          <h1 className="title text-center mb-3">Hsealth Metrices</h1>
+    <div ref={ref} className="container-fluid flex justify-center align-center">
+      <div className="row w-100">
+        <div className="flex flex-col align-middle justify-center">
+          <h1 className="title text-center mb-3">Health Metrices</h1>
           <form className="bg-[#121212] rounded-xl ml-7 pt-5 pb-10 px-10">
             <h4 className="card-title text-center font-semibold text-[1.8rem] mb-2">
               STEP 1 OF 5
@@ -85,7 +85,6 @@ function healthMetrices() {
                         Question {index + 1}
                       </h5>
                       <p className="card-text text-lg mb-3">{questionText}</p>
-                      <hr />
                     </div>
                     <div className="card-body mt-3">
                       {question.options.map((option, i) => (
